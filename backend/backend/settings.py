@@ -90,8 +90,18 @@ WSGI_APPLICATION = "backend.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# Check if the code is running on Render
+ON_RENDER = os.getenv('RENDER') is not None
+
+# Use internal URL if on Render, otherwise use external URL
+DATABASE_URL = (
+    'postgresql://flix4you_user:MAPLQWNo7IIOJkbaMloSlBj3SkMTwVpF@dpg-cuq1un3tq21c73a1cglg-a/flix4you'
+    if ON_RENDER else
+    'postgresql://flix4you_user:MAPLQWNo7IIOJkbaMloSlBj3SkMTwVpF@dpg-cuq1un3tq21c73a1cglg-a.oregon-postgres.render.com/flix4you'
+)
+
 DATABASES = {
-    'default': dj_database_url.parse('postgresql://flix4you_user:MAPLQWNo7IIOJkbaMloSlBj3SkMTwVpF@dpg-cuq1un3tq21c73a1cglg-a/flix4you')
+    'default': dj_database_url.parse(DATABASE_URL)
 }
 
 
