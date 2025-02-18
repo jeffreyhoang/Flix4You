@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 import InputField from "../components/InputField";
 import Button from "../components/Button";
 
+const local = "http://127.0.0.1:8000/api/signup/"
+const global = "https://flix4youbackend.onrender.com/api/signup/"
+
+
 const Signup = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
@@ -12,7 +16,7 @@ const Signup = () => {
     const handleSignup = async (e) => {
         e.preventDefault();
 
-        const response = await fetch("http://127.0.0.1:8000/api/signup/", {
+        const response = await fetch("https://flix4youbackend.onrender.com/api/signup/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -24,7 +28,7 @@ const Signup = () => {
 
         if (response.ok) {
             alert("Signup successful!");
-            navigate("/login"); // Redirect to login
+            navigate("/"); // Redirect to login
         } else {
             alert(`Signup failed: ${data.detail || "Error registering"}`);
         }
@@ -41,7 +45,7 @@ const Signup = () => {
             </form>
             
             <p>Already have an account?  
-                <Button text="Login" onClick={() => navigate("/login")} />
+                <Button text="Login" onClick={() => navigate("/")} />
             </p>
         </div>
     );
