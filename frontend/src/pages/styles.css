@@ -33,3 +33,30 @@ h2 {
     width: 100%;
     margin-top: 10px;
 }
+
+.dashboard-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
