@@ -12,7 +12,6 @@ class SignupView(generics.CreateAPIView):
     serializer_class = UserSerializer
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])  # Require authentication
 def list_users(request):
     users = User.objects.all().values("username", "email")
     return Response(list(users))

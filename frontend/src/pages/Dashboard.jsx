@@ -5,6 +5,7 @@ import Button from "../components/Button";
 const Dashboard = () => {
     const [users, setUsers] = useState([]); // Store users
     const [error, setError] = useState(null);
+    const [showUsers, setShowUsers] = useState(false); // ✅ Track table visibility
     const navigate = useNavigate();
 
     // Fetch users from the backend
@@ -53,29 +54,35 @@ const Dashboard = () => {
 
             {error && <p className="error">{error}</p>}
 
-            <h3>Registered Users</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Username</th>
-                        <th>Email</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {users.length > 0 ? (
-                        users.map((user, index) => (
-                            <tr key={index}>
-                                <td>{user.username}</td>
-                                <td>{user.email}</td>
+            <Button text={showUsers ? "Hide Users" : "Show Users"} onClick={() => setShowUsers(!showUsers)} />
+
+            {showUsers && (
+                <>
+                    <h3>Registered Users</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Email</th>
                             </tr>
-                        ))
-                    ) : (
-                        <tr>
-                            <td colSpan="2">No users found.</td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
+                        </thead>
+                        <tbody>
+                            {users.length > 0 ? (
+                                users.map((user, index) => (
+                                    <tr key={index}>
+                                        <td>{user.username}</td>
+                                        <td>{user.email}</td>
+                                    </tr>
+                                ))
+                            ) : (
+                                <tr>
+                                    <td colSpan="2">No users found.</td>
+                                </tr>
+                            )}
+                        </tbody>
+                    </table>
+                </>
+            )}
         </div>
     );
 };
