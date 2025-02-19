@@ -2,9 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import InputField from "../components/InputField";
 import Button from "../components/Button";
-
-const local = "http://127.0.0.1:8000/api/token/"
-const global = "https://flix4youbackend.onrender.com/api/token/"
+import "./styles.css"; // Import the CSS file
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -35,17 +33,18 @@ const Login = () => {
     };
 
     return (
-        <div>
-            <h2>Login</h2>
-            <form onSubmit={handleLogin}>
-                <InputField label="Username" type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-                <InputField label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <Button text="Login" type="submit" /> 
-            </form>
-            
-            <p>Don't have an account?  
-                <Button text="Sign Up" onClick={() => navigate("/signup")} />
-            </p>
+        <div className="login-container">
+            <div className="login-box">
+                <h2>Login to Flix4U</h2>
+                <form onSubmit={handleLogin}>
+                    <InputField label="Username " type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+                    <InputField label="Password  " type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <Button text="Login" type="submit" className="login-button" />
+                </form>
+                <p>Don't have an account?  
+                    <Button text="Sign Up" onClick={() => navigate("/signup")} className="signup-button" />
+                </p>
+            </div>
         </div>
     );
 };

@@ -1,0 +1,35 @@
+body {
+    background-image: url("background.jpg"); /* Path for public folder */
+    background-size: cover; /* Cover the full screen */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repetition */
+    height: 100vh; /* Full height */
+    margin: 0; /* Remove default margin */
+}
+
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: transparent;
+}
+
+.login-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.login-button, .signup-button {
+    width: 100%;
+    margin-top: 10px;
+}
