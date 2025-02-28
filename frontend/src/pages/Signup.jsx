@@ -5,7 +5,7 @@ import Button from "../components/Button";
 import "./styles.css"; 
 
 const local = "http://127.0.0.1:8000/api/signup/"
-const global = "https://flix4youbackend.onrender.com/api/signup/"
+const global = "https://flix4u-production.up.railway.app/api/signup/"; // Change to signup endpoint
 
 
 const Signup = () => {
@@ -17,7 +17,7 @@ const Signup = () => {
     const handleSignup = async (e) => {
         e.preventDefault();
 
-        const response = await fetch("https://flix4youbackend.onrender.com/api/signup/", {
+        const response = await fetch(global, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

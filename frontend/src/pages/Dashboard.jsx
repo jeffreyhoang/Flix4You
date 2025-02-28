@@ -18,7 +18,7 @@ const Dashboard = () => {
             }
 
             try {
-                const response = await fetch("https://flix4youbackend.onrender.com/api/users/", {
+                const response = await fetch("https://flix4u-production.up.railway.app/api/users/", {
                     method: "GET",
                     headers: {
                         "Authorization": `Bearer ${token}`, // ✅ Include JWT token

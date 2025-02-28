@@ -4,6 +4,8 @@ import InputField from "../components/InputField";
 import Button from "../components/Button";
 import "./styles.css"; // Import the CSS file
 
+
+
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -12,7 +14,7 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
 
-        const response = await fetch("https://flix4youbackend.onrender.com/api/token/", {
+        const response = await fetch("https://flix4u-production.up.railway.app/api/token/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

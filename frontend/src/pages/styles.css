@@ -1,8 +1,8 @@
 body {
-    background-image: url("background.jpg"); /* Path for public folder */
     background-size: cover; /* Cover the full screen */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Prevent repetition */
+    background-color: burlywood;
     height: 100vh; /* Full height */
     margin: 0; /* Remove default margin */
 }
@@ -49,11 +49,11 @@ table {
 
 th, td {
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #dddddd;
 }
 
 th {
-    background-color: #f4f4f4;
+    background-color: #f7c744;
 }
 
 .error {

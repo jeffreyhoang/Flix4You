@@ -27,7 +27,9 @@ SECRET_KEY = "django-insecure-&!t9gq&4mf-)i8x9krtm=9)4mt!6cfmq&cs^h&c#!p1o52)d!1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ["https://flix4u-production.up.railway.app"]
+
+ALLOWED_HOSTS = ["flix4u-production.up.railway.app", "localhost"]
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -94,16 +96,9 @@ WSGI_APPLICATION = "backend.wsgi.application"
 ON_RENDER = os.getenv('RENDER') is not None
 
 # Use internal URL if on Render, otherwise use external URL
-DATABASE_URL = (
-    'postgresql://flix4you_user:MAPLQWNo7IIOJkbaMloSlBj3SkMTwVpF@dpg-cuq1un3tq21c73a1cglg-a/flix4you'
-    if ON_RENDER else
-    'postgresql://flix4you_user:MAPLQWNo7IIOJkbaMloSlBj3SkMTwVpF@dpg-cuq1un3tq21c73a1cglg-a.oregon-postgres.render.com/flix4you'
-)
-
 DATABASES = {
-    'default': dj_database_url.parse(DATABASE_URL)
+    'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
