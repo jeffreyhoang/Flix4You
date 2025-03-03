@@ -1,47 +1,19 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
+import MoviesButton from "../components/MoviesButton";
+import UserProfilesButton from "../components/UserProfilesButton";
+import WatchlistButton from "../components/WatchlistButton";
+import HistoryButton from "../components/HistoryButton";
+import ReviewsButton from "../components/ReviewsButton";
+import SubscriptionButton from "../components/SubscriptionButton";
 
 const Dashboard = () => {
-    const [users, setUsers] = useState([]); // Store users
     const [error, setError] = useState(null);
-    const [showUsers, setShowUsers] = useState(false); // ✅ Track table visibility
     const navigate = useNavigate();
 
-    // Fetch users from the backend
-    useEffect(() => {
-        const fetchUsers = async () => {
-            const token = localStorage.getItem("accessToken"); // Get JWT token
-            if (!token) {
-                setError("User not authenticated.");
-                return;
-            }
-
-            try {
-                const response = await fetch("https://flix4u-production.up.railway.app/api/users/", {
-                    method: "GET",
-                    headers: {
-                        "Authorization": `Bearer ${token}`, // ✅ Include JWT token
-                        "Content-Type": "application/json"
-                    }
-                });
-
-                if (!response.ok) {
-                    throw new Error("Failed to fetch users.");
-                }
-
-                const data = await response.json();
-                setUsers(data); // ✅ Store users in state
-            } catch (error) {
-                setError(error.message);
-            }
-        };
-
-        fetchUsers();
-    }, []);
-
     const handleLogout = () => {
-        localStorage.removeItem("accessToken"); // ✅ Logout (remove token)
+        localStorage.removeItem("accessToken"); // Logout (remove token)
         navigate("/");
     };
 
@@ -50,39 +22,19 @@ const Dashboard = () => {
             <h2>Welcome to Flix4You</h2>
             <p>You are successfully logged in!</p>
 
+            {/* Logout Button */}
             <Button text="Logout" onClick={handleLogout} />
 
+            {/* Display Error Messages */}
             {error && <p className="error">{error}</p>}
 
-            <Button text={showUsers ? "Hide Users" : "Show Users"} onClick={() => setShowUsers(!showUsers)} />
-
-            {showUsers && (
-                <>
-                    <h3>Registered Users</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Username</th>
-                                <th>Email</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {users.length > 0 ? (
-                                users.map((user, index) => (
-                                    <tr key={index}>
-                                        <td>{user.username}</td>
-                                        <td>{user.email}</td>
-                                    </tr>
-                                ))
-                            ) : (
-                                <tr>
-                                    <td colSpan="2">No users found.</td>
-                                </tr>
-                            )}
-                        </tbody>
-                    </table>
-                </>
-            )}
+            {/* Buttons for New Models */}
+            <MoviesButton />
+            <UserProfilesButton />
+            <WatchlistButton />
+            <HistoryButton />
+            <ReviewsButton />
+            <SubscriptionButton />
         </div>
     );
 };
