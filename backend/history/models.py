@@ -3,7 +3,7 @@ from profiles.models import Profile  # Import Profile model
 from movies.models import Movie  # Import Movie model
 
 class History(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)   # Each profile has a history list
+    profile = models.OneToOneField(Profile, on_delete=models.CASCADE)   # Each profile has ONE history list
     movies = models.ManyToManyField(Movie)   # A history list contains multiple movies
     watched_at = models.DateTimeField(auto_now_add=True)
 

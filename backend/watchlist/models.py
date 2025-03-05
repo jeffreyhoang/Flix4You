@@ -4,7 +4,7 @@ from movies.models import Movie  # Import Movie model
 
 
 class Watchlist(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)   # Each profile has a watchlist
+    profile = models.OneToOneField(Profile, on_delete=models.CASCADE)   # Each profile has ONE watchlist
     movies = models.ManyToManyField(Movie)   # A watchlist contains multiple movies
 
     def __str__(self):
