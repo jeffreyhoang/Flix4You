@@ -4,7 +4,7 @@
 /* Global body styling */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/Users/alexanderlee/Documents/GitHub/Flix4You/frontend/src/assets/background.jpg');
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.imgur.com/IerOCAQ.jpeg');
     background-size: cover;
     background-position: center;
     color: #fff;
