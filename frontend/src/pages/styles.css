@@ -1,46 +1,130 @@
+/* Import a modern Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+/* Global body styling */
 body {
-    background-size: cover; /* Cover the full screen */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent repetition */
-    background-color: burlywood;
-    height: 100vh; /* Full height */
-    margin: 0; /* Remove default margin */
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/Users/alexanderlee/Documents/GitHub/Flix4You/frontend/src/assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.flix-header {
+    position: absolute;
+    top: 20px;
+    left: 70px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f8e45e;
+    cursor: pointer;
+    transition: color 0.3s;
+}
 
+.flix-header:hover {
+    color: #ff4b2b;
+}
+
+/* Container styling */
 .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background: transparent;
+    height: 100%;
 }
 
+/* Login Box styling */
 .login-box {
-    background: white;
+    background: rgba(0, 0, 0, 0.75);
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 350px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    width: 380px;
     text-align: center;
+    backdrop-filter: blur(8px);
 }
 
-h2 {
+.login-box h2 {
     margin-bottom: 20px;
+    font-weight: 500;
+    color: #f7c744;
 }
 
+/* Button styling */
 .login-button, .signup-button {
     width: 100%;
-    margin-top: 10px;
+    padding: 12px;
+    margin-top: 15px;
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(255, 75, 43, 0.3);
+    text-transform: uppercase;
 }
 
+.signup-button {
+    background: transparent;
+    border: 2px solid #ff4b2b;
+    color: #ff4b2b;
+}
+
+.login-button:hover {
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+    box-shadow: 0 6px 12px rgba(255, 75, 43, 0.5);
+    transform: translateY(-2px);
+}
+
+.signup-button:hover {
+    background: #ff4b2b;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Input Field styling */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    transition: background 0.3s;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus{
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+
+/* Dashboard container styling */
 .dashboard-container {
-    padding: 20px;
-    max-width: 800px;
+    padding: 30px;
+    max-width: 900px;
+    background: rgba(0,0,0,0.7);
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     margin: auto;
     text-align: center;
 }
 
+/* Table styling */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -48,15 +132,30 @@ table {
 }
 
 th, td {
-    padding: 10px;
-    border: 1px solid #dddddd;
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 th {
-    background-color: #f7c744;
+    background-color: #e50914;
+    color: white;
 }
 
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Error Message Styling */
 .error {
-    color: red;
+    color: #ff4d4d;
     font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 600px) {
+    .login-box, .dashboard-container {
+        width: 90%;
+        padding: 20px;
+    }
 }

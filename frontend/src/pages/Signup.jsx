@@ -36,21 +36,26 @@ const Signup = () => {
     };
 
     return (
-        <div className="login-container">
-            <div className="login-box">
+        <div>
+            <header className="flix-header" onClick={() => navigate("/")}>
+                Flix4U
+            </header>
+             <div className="login-container">
+                <div className="login-box">
 
-            <h2>Signup</h2>
-            
-            <form onSubmit={handleSignup}>
-                <InputField label="Username " type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-                <InputField label="Email " type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                <InputField label="Password " type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <Button text="Sign Up" onClick={handleSignup} />
-            </form>
-            
-            <p>Already have an account?  
-                <Button text="Login" onClick={() => navigate("/")} />
-            </p>
+                <h2>Signup</h2>
+                
+                <form onSubmit={handleSignup}>
+                    <InputField label="Username " type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+                    <InputField label="Email " type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <InputField label="Password " type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <Button text="Sign Up" onClick={handleSignup} className="signup-button"/>
+                </form>
+                
+                <p>Already have an account?  
+                    <Button text="Login" className="login-button" onClick={() => navigate("/")} />
+                </p>
+                </div>
             </div>
         </div>
     );

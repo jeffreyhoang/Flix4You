@@ -35,17 +35,22 @@ const Login = () => {
     };
 
     return (
-        <div className="login-container">
-            <div className="login-box">
-                <h2>Login to Flix4U</h2>
-                <form onSubmit={handleLogin}>
-                    <InputField label="Username " type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-                    <InputField label="Password  " type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                    <Button text="Login" type="submit" className="login-button" />
-                </form>
-                <p>Don't have an account?  
-                    <Button text="Sign Up" onClick={() => navigate("/signup")} className="signup-button" />
-                </p>
+        <div>
+            <header className="flix-header" onClick={() => navigate("/")}>
+                Flix4U
+            </header>
+            <div className="login-container">
+                <div className="login-box">
+                    <h2>Login to Flix4U</h2>
+                    <form onSubmit={handleLogin}>
+                        <InputField label="Username " type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+                        <InputField label="Password  " type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                        <Button text="Sign In" type="submit" className="login-button" />
+                    </form>
+                    <p>Don't have an account?  
+                        <Button text="Sign Up" onClick={() => navigate("/signup")} className="signup-button" />
+                    </p>
+                </div>
             </div>
         </div>
     );
