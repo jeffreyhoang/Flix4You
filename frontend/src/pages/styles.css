@@ -9,7 +9,7 @@ body {
     background-position: center;
     color: #fff;
     margin: 0;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,12 +22,6 @@ body {
     font-size: 40px;
     font-weight: bold;
     color: #f8e45e;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.flix-header:hover {
-    color: #ff4b2b;
 }
 
 /* Container styling */
@@ -67,7 +61,6 @@ body {
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
     box-shadow: 0 4px 8px rgba(255, 75, 43, 0.3);
     text-transform: uppercase;
 }
@@ -117,11 +110,14 @@ input[type="email"]:focus{
 .dashboard-container {
     padding: 30px;
     max-width: 900px;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     margin: auto;
     text-align: center;
+    height: calc(100vh - 80px); /* Adjust height dynamically */
+    overflow-y: auto;
+    margin-top: 80px; /* Push content below navbar */
 }
 
 /* Table styling */
@@ -158,4 +154,51 @@ tr:hover {
         width: 90%;
         padding: 20px;
     }
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar-left h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #f8e45e;
+    margin: 0;
+    cursor: pointer;
+}
+
+.navbar-right {
+    display: flex;
+    padding-right: 50px;
+    align-items: center;
+}
+
+.navbar-right span {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.logout-button {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+}
+
+.logout-button:hover {
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+    transform: translateY(-2px);
 }

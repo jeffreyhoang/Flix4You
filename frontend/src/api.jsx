@@ -96,3 +96,20 @@ export const fetchSubscription = async () => {
         return [];
     }
 }
+
+export const fetchUserDetails = async () => {
+    try {
+        const token = localStorage.getItem("accessToken");
+        if (!token) return null;
+
+        const response = await axios.get("https://flix4u-production.up.railway.app/api/user/", {
+            headers: { Authorization: `Bearer ${token}` }
+        });
+
+        return response.data; // Should return { username: "exampleUser" }
+    } catch (error) {
+        console.error("Error fetching user details:", error);
+        return null;
+    }
+};
+

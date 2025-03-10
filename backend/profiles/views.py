@@ -28,3 +28,13 @@ class ProfileListCreateView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)  # Attach profile to logged-in user
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_logged_in_user(request):
+    user = request.user  # Extracts user from JWT token
+    return Response({
+        "id": user.id,
+        "username": user.username,
+        "email": user.email,
+    })
