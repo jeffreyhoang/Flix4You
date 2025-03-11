@@ -1,40 +1,81 @@
-from rest_framework import generics
+from rest_framework import generics, serializers
 from django.contrib.auth.models import User
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from .models import Profile
 from .serializers import UserSerializer, ProfileSerializer
+from rest_framework_simplejwt.tokens import RefreshToken
 
-# User Signup (Moved from api/views.py)
+'''
+Create a user
+- POST /api/users/
+'''
 class SignupView(generics.CreateAPIView):
     queryset = User.objects.all()
     permission_classes = [AllowAny]
     serializer_class = UserSerializer
 
-# List All Users (Moved from api/views.py)
-@api_view(['GET'])
-def list_users(request):
-    users = User.objects.all().values("username", "email")
-    return Response(list(users))
-
-# List & Create Profiles (Profiles now handle users)
+'''
+List & create profiles
+- GET /api/profiles/
+- POST /api/profiles/
+'''
 class ProfileListCreateView(generics.ListCreateAPIView):
     serializer_class = ProfileSerializer
-    permission_classes = [AllowAny]   # change to 'IsAuthenticated' if you want profiles to be private during deployment
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return Profile.objects.all()
+        return Profile.objects.filter(user=self.request.user)
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)  # Attach profile to logged-in user
+        profile_count = Profile.objects.filter(user=self.request.user).count()
 
+        if profile_count >= 5:
+            raise serializers.ValidationError("You can only have up to 5 profiles.")
+
+        serializer.save(user=self.request.user)   # Attach profile to logged-in user
+
+'''
+Retrieve, update, and delete a single profile
+- GET /api/profiles/{id}
+- PUT /api/profiles/{id}
+- DELETE /api/profiles/{id}
+'''
+class ProfileDetailView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = ProfileSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Profile.objects.filter(user=self.request.user)
+
+'''
+Retrieve the authenticated user's details
+- GET /api/
+'''
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def get_logged_in_user(request):
-    user = request.user  # Extracts user from JWT token
+def get_logged_in_user_view(request):
+    user = request.user
     return Response({
         "id": user.id,
         "username": user.username,
         "email": user.email,
-    })
+        "first_name": user.first_name,
+        "last_name": user.last_name
+    } )
+
+'''
+Logs out the user by blacklisting the token
+- POST /api/
+'''
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def logout_view(request):
+    try:
+        refresh_token = request.data["refresh"]
+        token = RefreshToken(refresh_token)
+        token.blacklist()
+        return Response({"message": "Successfully logged out"}, status=200)
+    except Exception as e:
+        return Response({"error": "Invalid token"}, status=400)

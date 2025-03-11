@@ -1,9 +1,23 @@
 from django.urls import path
-from .views import SignupView, list_users, ProfileListCreateView, get_logged_in_user
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from .views import (
+    SignupView, 
+    ProfileListCreateView, 
+    ProfileDetailView, 
+    get_logged_in_user_view,
+    logout_view
+)
+
 
 urlpatterns = [
-    path("signup/", SignupView.as_view(), name="signup"),  # User Signup 
-    path("users/", list_users, name="list_users"),  # List Users 
-    path("profiles/", ProfileListCreateView.as_view(), name="profile-list-create"),  # Profiles
-    path('user/', get_logged_in_user, name='get_logged_in_user'),
+    # Authentication Endpoints
+    path("signup/", SignupView.as_view(), name="signup"),   # User Signup
+    path("login/", TokenObtainPairView.as_view(), name="login"),  # JWT Login (Obtain Tokens)
+    path("token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),  # Refresh Access Token
+    path("logout/", logout_view, name="logout"),   # User Logout (Blacklist Refresh Token)
+
+    # User and Profile Endpoints
+    path("user/", get_logged_in_user_view, name="get_logged_in_user"),   # Get Authenticated User's Details
+    path("profile/", ProfileListCreateView.as_view(), name="profile_list_create"),   # List and Create Profiles
+    path("profile/<int:pk>/", ProfileDetailView.as_view(), name="profile_detail"),   # Retrieve, Update, or Delete Profile
 ]
