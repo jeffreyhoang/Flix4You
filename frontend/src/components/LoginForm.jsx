@@ -21,7 +21,7 @@ const LoginForm = () => {
             localStorage.setItem("refresh_token", response.data.refresh);
 
             setMessage("Login successful! Redirecting...");
-            setTimeout(() => navigate("/dashboard"), 2000);
+            setTimeout(() => navigate("/profile-dashboard"), 2000);
         } catch (error) {
             setMessage("Invalid username or password.");
         }

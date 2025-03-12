@@ -39,6 +39,11 @@ export const getProfile = async (token, profileId) => {
     });
 };
 
+// Select a User Profile (store profile ID in localStorage)
+export const selectProfile = (profileId) => {
+    localStorage.setItem("selected_profile", profileId);
+};
+
 // Delete a User Profile
 export const deleteProfile = async (token, profileId) => {
     return axios.delete(`${API_BASE_URL}profile/${profileId}/`, {
