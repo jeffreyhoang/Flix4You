@@ -11,7 +11,7 @@ const ProfileDashboard = () => {
 
     useEffect(() => {
         if (!token) {
-            navigate("/login");  // Redirect if not logged in
+            navigate("/");  // Redirect if not logged in
         } else {
             loadProfiles();
         }

@@ -1,8 +1,8 @@
 import React from "react";
-import { getProfiles } from "../api/profiles";
+import { selectProfile } from "../api/profiles";
 import { useNavigate } from "react-router-dom";
 
-const ProfileList = ({ profiles }) => {
+const ProfileList = ({ profiles }) => {   // receives profiles from ProfileDashboard
     const navigate = useNavigate();
 
     const handleSelectProfile = (profileId) => {
