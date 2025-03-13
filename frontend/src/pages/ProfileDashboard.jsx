@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getProfiles } from "../api/profiles";
 import ProfileList from "../components/ProfileList";
-import ProfileForm from "../components/CreateProfileForm";
 import { useNavigate } from "react-router-dom";
 
 const ProfileDashboard = () => {
@@ -30,7 +29,11 @@ const ProfileDashboard = () => {
         <div className="profile-container">
             <h2>Select a Profile</h2>
             <ProfileList profiles={profiles} />
-            {profiles.length < 5 && <ProfileForm token={token} profiles={profiles} onProfileCreated={loadProfiles} />}
+            {profiles.length < 5 && (
+                <button className="login-button" onClick={() => navigate("/create-profile")}>
+                    Create Profile
+                </button>
+            )}
         </div>
     );
 };

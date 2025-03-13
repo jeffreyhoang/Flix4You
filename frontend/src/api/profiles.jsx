@@ -20,7 +20,7 @@ export const getProfiles = async (token) => {
 
 // Create a New Profile
  export const createProfile = async (token, profileData) => {
-    return axios.get(`${API_BASE_URL}profile/`, profileData, {
+    return axios.post(`${API_BASE_URL}profile/`, profileData, {
         headers: { Authorization: `Bearer ${token}` }  
     });
  };

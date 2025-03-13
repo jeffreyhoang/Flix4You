@@ -11,13 +11,14 @@ const SignupForm = () => {
         email: "",
         password: "",
     });
-
     const [message, setMessage] = useState("");
 
+    // handles input changes dynamically
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    // handles form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
