@@ -17,7 +17,6 @@ const Dashboard = () => {
             try {
                 const profile = JSON.parse(storedProfile);
                 setProfileName(profile.name);
-                console.log(profile.name)
                 navigate("/dashboard");
             } catch (error){
                 console.error("Error parsing profile:", error);
