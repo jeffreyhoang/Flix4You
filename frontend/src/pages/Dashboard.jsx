@@ -1,59 +1,44 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "../components/Button";
-import { fetchUserDetails } from "../api"; 
-import MoviesButton from "../components/MoviesButton";
-import UserProfilesButton from "../components/UserProfilesButton";
-import WatchlistButton from "../components/WatchlistButton";
-import HistoryButton from "../components/HistoryButton";
-import ReviewsButton from "../components/ReviewsButton";
-import SubscriptionButton from "../components/SubscriptionButton";
-import "./styles.css";
+import LogoutButton from "../components/LogoutButton";
+import BackToProfilesButton from "../components/BackToProfilesButton";
+import "../styles/styles.css";
 
 const Dashboard = () => {
-    const [username, setUsername] = useState("User");
     const navigate = useNavigate();
+    const [profileName, setProfileName] = useState("");
 
     useEffect(() => {
-        const getUserDetails = async () => {
-            const userData = await fetchUserDetails();
-            if (userData && userData.username) {
-                setUsername(userData.username);
+        const storedProfile = localStorage.getItem("selected_profile");
+
+        if (!storedProfile) {
+            navigate("/profile-dashboard");
+        } else {
+            try {
+                const profile = JSON.parse(storedProfile);
+                setProfileName(profile.name);
+                console.log(profile.name)
+                navigate("/dashboard");
+            } catch (error){
+                console.error("Error parsing profile:", error);
+                navigate("/profile-dashboard");
             }
-        };
-
-        getUserDetails();
+        }
     }, []);
-
-    const handleLogout = () => {
-        localStorage.removeItem("accessToken");
-        localStorage.removeItem("refreshToken");
-        navigate("/");
-    };
 
     return (
         <div>
-            {/* Navbar */}
+            {/* Navbar (Might make into component) */}
             <nav className="navbar">
                 <div className="navbar-left">
                     <h1>Flix4U</h1>
                 </div>
                 <div className="navbar-right">
-                    <span>Welcome, {username}</span>
-                    <Button text="Logout" onClick={handleLogout} className="logout-button" />
+                    <span>Welcome, {profileName}</span>
+                    <LogoutButton />
+                    <BackToProfilesButton text={"Select Profile"}/>
                 </div>
             </nav>
-
-            {/* Dashboard Content */}
-            <div className="dashboard-container">
-                <h2>Welcome to Flix4U</h2>
-                <MoviesButton />
-                <UserProfilesButton />
-                <WatchlistButton />
-                <HistoryButton />
-                <ReviewsButton />
-                <SubscriptionButton />
-            </div>
         </div>
     );
 };

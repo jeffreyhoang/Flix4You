@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getProfiles } from "../api/profiles";
 import ProfileList from "../components/ProfileList";
+import LogoutButton from "../components/LogoutButton";
 import { useNavigate } from "react-router-dom";
 
 const ProfileDashboard = () => {
@@ -34,6 +35,7 @@ const ProfileDashboard = () => {
                     Create Profile
                 </button>
             )}
+            <LogoutButton />
         </div>
     );
 };

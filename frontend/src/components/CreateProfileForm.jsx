@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { createProfile } from "../api/profiles";
 import { useNavigate } from "react-router-dom";
+import BackToProfilesButton from "../components/BackToProfilesButton";
 
 const CreateProfileForm = ({ token }) => {
     const navigate = useNavigate();
@@ -18,7 +19,7 @@ const CreateProfileForm = ({ token }) => {
         try {
             await createProfile(token, { name: formData.name, avatar: formData.avatar || null});
             setMessage("Profile created successfully! Redirecting to profile list...")
-            setTimeout(() => navigate("/profile-dashboard"), 2000);
+            setTimeout(() => navigate("/profile-dashboard"), 1000);
         } catch (error) {
             setMessage("Error creating profile. Please try again.");
         }
@@ -34,6 +35,7 @@ const CreateProfileForm = ({ token }) => {
                     <input type="text" name="avatar" placeholder="Avatar URL (optional)" onChange={handleChange} />
                     <button type="submit" className="login-button">Create Profile</button>
                 </form>
+                <BackToProfilesButton text={"Back"}/>
             </div>
         </div>
     )

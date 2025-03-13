@@ -40,8 +40,8 @@ export const getProfile = async (token, profileId) => {
 };
 
 // Select a User Profile (store profile ID in localStorage)
-export const selectProfile = (profileId) => {
-    localStorage.setItem("selected_profile", profileId);
+export const selectProfile = (profile) => {
+    localStorage.setItem("selected_profile", JSON.stringify(profile));
 };
 
 // Delete a User Profile

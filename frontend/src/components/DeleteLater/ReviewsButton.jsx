@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { fetchReviews } from "../api"; 
+import { fetchReviews } from "../../api"; 
 
 const ReviewsButton = () => {
     const [reviews, setReviews] = useState([]);

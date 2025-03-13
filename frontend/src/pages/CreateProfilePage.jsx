@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { createProfile } from "../api/profiles";
+import React, { useEffect } from "react";
 import CreateProfileForm from "../components/CreateProfileForm";
 import { useNavigate } from "react-router-dom";
 
