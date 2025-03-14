@@ -1,6 +1,8 @@
 import React from "react";
 import { selectProfile } from "../api/profiles";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSmile} from "@fortawesome/free-solid-svg-icons";
 
 const ProfileList = ({ profiles }) => {   // Receives profiles from ProfileDashboard
     const navigate = useNavigate();
@@ -15,7 +17,8 @@ const ProfileList = ({ profiles }) => {   // Receives profiles from ProfileDashb
         <div className="profile-list">
             {profiles.length > 0 ? (
                 profiles.map((profile) => (
-                    <button key={profile.id} className="login-button" onClick={() => handleSelectProfile(profile)}>
+                    <button key={profile.id} className="profile-button" onClick={() => handleSelectProfile(profile)} >
+                        <FontAwesomeIcon icon={faSmile} className="profile-icon" />
                         {profile.name}
                     </button>
                 ))

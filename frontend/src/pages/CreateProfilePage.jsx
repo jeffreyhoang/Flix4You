@@ -15,6 +15,7 @@ const CreateProfilePage = () => {
 
     return (
         <div>
+            <h1 className="flix-header">Flix4You</h1>
             <CreateProfileForm token={token} />
         </div>
     )

@@ -33,11 +33,18 @@ const Dashboard = () => {
                     <h1>Flix4U</h1>
                 </div>
                 <div className="navbar-right">
-                    <span>Welcome, {profileName}</span>
-                    <LogoutButton />
-                    <BackToProfilesButton text={"Select Profile"}/>
+                    <span className="welcome-text">Welcome, {profileName}</span>
+
+                    <BackToProfilesButton text={"SELECT PROFILE"}/>
+
+                    <LogoutButton/>
+
                 </div>
             </nav>
+
+            <div className="dashboard-container">
+                <p>Movies are here!</p>
+            </div>
         </div>
     );
 };

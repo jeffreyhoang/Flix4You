@@ -162,12 +162,14 @@ tr:hover {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    padding: 10px 20px;
     background: rgba(0, 0, 0, 0.85);
     padding: 15px 30px;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
+    box-sizing: border-box;
 }
 
 .navbar-left h1 {
@@ -180,13 +182,43 @@ tr:hover {
 
 .navbar-right {
     display: flex;
-    padding-right: 50px;
     align-items: center;
+    gap: 10px; 
 }
 
 .navbar-right span {
     font-size: 16px;
     font-weight: 500;
+}
+
+.welcome-text {
+    color: white;
+    font-size: 16px;
+}
+
+.logging-out-button {
+    background: #555; 
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.logging-out-button:hover {
+    background: #777;
+}
+
+.select-profile-button {
+    background: linear-gradient(to right, #e8f406, #aa01f8); 
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.select-profile-button:hover {
+    background: linear-gradient(to right, #FF4B2B, #FF416C);
 }
 
 .logout-button {
@@ -202,4 +234,56 @@ tr:hover {
 .logout-button:hover {
     background: linear-gradient(135deg, #ff4b2b, #ff416c);
     transform: translateY(-2px);
+}
+
+
+.profile-grid {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center; 
+    height: 100vh;  
+    width: 80vh;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6); 
+}
+
+.profiles {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-button {
+    width: 120px;
+    height: 120px;
+    background: #27027d;
+    color: rgb(234, 246, 131);
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+.profile-button:hover {
+    background: #555;
+}
+
+.profile-icon {
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.create-profile {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px dashed white;
+}
+
+.logout {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px dashed white;
 }
