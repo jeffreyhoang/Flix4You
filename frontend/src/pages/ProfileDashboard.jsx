@@ -3,7 +3,7 @@ import { getProfiles } from "../api/profiles";
 import ProfileList from "../components/ProfileList";
 import LogoutButton from "../components/LogoutButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSmile, faPlus, faXmark} from "@fortawesome/free-solid-svg-icons";
+import { faCircleUser, faPlus, faCircleXmark} from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
 const ProfileDashboard = () => {
@@ -52,7 +52,7 @@ const ProfileDashboard = () => {
                     className="profile-button logout" 
                     onClick={() => navigate("/")}>
 
-                        <FontAwesomeIcon icon={faXmark} className="profile-icon" />
+                        <FontAwesomeIcon icon={faCircleXmark} className="profile-icon" />
 
                         <span>Logout</span>
                 </button>
