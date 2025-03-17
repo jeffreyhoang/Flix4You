@@ -209,7 +209,7 @@ tr:hover {
 }
 
 .select-profile-button {
-    background: linear-gradient(to right, #e8f406, #aa01f8); 
+    background-color: green;
     color: white;
     padding: 8px 20px;
     border-radius: 20px;
