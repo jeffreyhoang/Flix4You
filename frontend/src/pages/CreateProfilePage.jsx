@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import CreateProfileForm from "../components/CreateProfileForm";
+import CreateProfileForm from "../components/ProfileDashboard/CreateProfileForm";
 import { useNavigate } from "react-router-dom";
 
 const CreateProfilePage = () => {

@@ -2,14 +2,24 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LogoutButton from "../components/LogoutButton";
 import BackToProfilesButton from "../components/BackToProfilesButton";
+import MovieList from "../components/MovieList";
 import "../styles/styles.css";
 
 const Dashboard = () => {
     const navigate = useNavigate();
     const [profileName, setProfileName] = useState("");
+    const token = localStorage.getItem("access_token");
+    const storedProfile = localStorage.getItem("selected_profile");
 
     useEffect(() => {
-        const storedProfile = localStorage.getItem("selected_profile");
+        if (!token) {
+            navigate("/");  // Redirect if not logged in
+        } else {
+            loadProfileName();
+        }
+    }, []);
+
+    const loadProfileName = async () => {
 
         if (!storedProfile) {
             navigate("/profile-dashboard");
@@ -23,7 +33,7 @@ const Dashboard = () => {
                 navigate("/profile-dashboard");
             }
         }
-    }, []);
+    }
 
     return (
         <div>
@@ -43,7 +53,7 @@ const Dashboard = () => {
             </nav>
 
             <div className="dashboard-container">
-                <p>Movies are here!</p>
+                <MovieList />
             </div>
         </div>
     );

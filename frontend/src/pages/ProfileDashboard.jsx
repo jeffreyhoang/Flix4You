@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { getProfiles } from "../api/profiles";
-import ProfileList from "../components/ProfileList";
+import ProfileList from "../components/ProfileDashboard/ProfileList";
 import LogoutButton from "../components/LogoutButton";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleUser, faPlus, faCircleXmark} from "@fortawesome/free-solid-svg-icons";
+import CreateProfileButton from "../components/ProfileDashboard/CreateProfileButton";
+import EditProfilesButton from "../components/ProfileDashboard/EditProfilesButton";
 import { useNavigate } from "react-router-dom";
 
 const ProfileDashboard = () => {
     const navigate = useNavigate();
     const [profiles, setProfiles] = useState([]);
+    const [isSelecting, setIsSelecting] = useState(true);
     const token = localStorage.getItem("access_token");
 
     useEffect(() => {
@@ -28,35 +29,22 @@ const ProfileDashboard = () => {
         }
     };
 
+    const toggleEditMode = async () => {
+        setIsSelecting(!isSelecting);
+    };
+
     return (
         
         <div className="profile-grid">
             <h1 className="flix-header">Flix4You</h1>
 
-            <h2>Select a Profile</h2>
+            <h2>{isSelecting ? "Select a Profile" : "Manage Profiles"}</h2>
 
             <div className="profiles">
-                <ProfileList profiles={profiles} />
-
-                {profiles.length < 5 && (
-                    <button
-                        className="profile-button create-profile"
-                        onClick={() => navigate("/create-profile")}
-                    >
-                        <FontAwesomeIcon icon={faPlus} className="profile-icon" />
-                        <span>Create</span>
-                    </button>
-                )}
-
-                <button 
-                    className="profile-button logout" 
-                    onClick={() => navigate("/")}>
-
-                        <FontAwesomeIcon icon={faCircleXmark} className="profile-icon" />
-
-                        <span>Logout</span>
-                </button>
-
+                <ProfileList profiles={profiles} isSelecting={isSelecting} />
+                <CreateProfileButton profiles={profiles} />
+                <EditProfilesButton isSelecting={isSelecting} toggleEditMode={toggleEditMode}/>
+                <LogoutButton />
             </div>
         </div>
     );

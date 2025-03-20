@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 from .models import Profile
-from datetime import datetime
 
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)

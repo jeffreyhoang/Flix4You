@@ -9,7 +9,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 '''
 Create a user
-- POST /api/users/
+- POST /api/signup/
 '''
 class SignupView(generics.CreateAPIView):
     queryset = User.objects.all()
@@ -51,7 +51,7 @@ class ProfileDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 '''
 Retrieve the authenticated user's details
-- GET /api/
+- GET /api/user/
 '''
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
@@ -67,7 +67,7 @@ def get_logged_in_user_view(request):
 
 '''
 Logs out the user by blacklisting the token
-- POST /api/
+- POST /api/logout/
 '''
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])

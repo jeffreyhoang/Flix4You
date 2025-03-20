@@ -1,8 +1,8 @@
 import axios from "axios";
 
 // Change this URL if needed (use localhost for local testing)
-//const API_BASE_URL = "http://127.0.0.1:8000/api/";   
-const API_BASE_URL = "https://flix4u-production.up.railway.app/api/";
+const API_BASE_URL = "http://127.0.0.1:8000/api/";   
+//const API_BASE_URL = "https://flix4u-production.up.railway.app/api/";
 
 // Get Authenticated User Details
 export const getUser = async (token) => {
@@ -39,10 +39,6 @@ export const getProfile = async (token, profileId) => {
     });
 };
 
-// Select a User Profile (store profile ID in localStorage)
-export const selectProfile = (profile) => {
-    localStorage.setItem("selected_profile", JSON.stringify(profile));
-};
 
 // Delete a User Profile
 export const deleteProfile = async (token, profileId) => {

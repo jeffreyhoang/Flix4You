@@ -287,3 +287,10 @@ tr:hover {
     background: rgba(255, 255, 255, 0.2);
     border: 2px dashed white;
 }
+
+.movie-thumbnail {
+    width: 200px;   /* Set width */
+    height: 300px;  /* Set height */
+    object-fit: cover; /* Ensures the image fills the box without distortion */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+}

@@ -4,6 +4,8 @@ import Login from "./pages/Login";
 import ProfileDashboard from "./pages/ProfileDashboard";
 import CreateProfilePage from "./pages/CreateProfilePage";
 import Dashboard from "./pages/Dashboard";
+import UpdateDeleteProfilePage from "./pages/UpdateDeleteProfilePage";
+import DisplayMoviePage from "./pages/DisplayMoviePage";
 
 function App() {
     return (
@@ -14,6 +16,8 @@ function App() {
                 <Route path="/profile-dashboard" element={<ProfileDashboard />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/create-profile" element={<CreateProfilePage />} />
+                <Route path="/update-delete-profile" element={<UpdateDeleteProfilePage />} />
+                <Route path="/display-movie" element={<DisplayMoviePage />} />
             </Routes>
         </Router>
     );

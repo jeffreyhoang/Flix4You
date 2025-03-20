@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { createProfile } from "../api/profiles";
+import { createProfile } from "../../api/profiles";
 import { useNavigate } from "react-router-dom";
-import BackToProfilesButton from "../components/BackToProfilesButton";
+import BackToProfilesButton from "../BackToProfilesButton";
 
 const CreateProfileForm = ({ token }) => {
     const navigate = useNavigate();
@@ -16,6 +16,7 @@ const CreateProfileForm = ({ token }) => {
     // handles form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         try {
             await createProfile(token, { name: formData.name, avatar: formData.avatar || null});
             setMessage("Profile created successfully! Redirecting to profile list...")
