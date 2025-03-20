@@ -10,6 +10,7 @@ const ProfileDashboard = () => {
     const navigate = useNavigate();
     const [profiles, setProfiles] = useState([]);
     const [isSelecting, setIsSelecting] = useState(true);
+    const [loading, setLoading] = useState(true);
     const token = localStorage.getItem("access_token");
 
     useEffect(() => {
@@ -26,8 +27,14 @@ const ProfileDashboard = () => {
             setProfiles(response.data);
         } catch (error) {
             console.error("Error fetching profiles", error);
+        } finally {
+            setLoading(false);
         }
     };
+
+    if(loading) {
+        return <p>Loading Profiles</p>
+    }
 
     const toggleEditMode = async () => {
         setIsSelecting(!isSelecting);
