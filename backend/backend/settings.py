@@ -46,10 +46,6 @@ INSTALLED_APPS = [
     
     "profiles",
     "movies",
-    "watchlist",
-    "history",
-    "reviews",
-    "subscriptions",
 ]
 
 MIDDLEWARE = [
