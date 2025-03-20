@@ -1,8 +1,6 @@
 import axios from "axios";
+import API_BASE_URL from "./config"; // Import the base URL
 
-// Change this URL if needed (use localhost for local testing)
-const API_BASE_URL = "http://127.0.0.1:8000/api/";   
-//const API_BASE_URL = "https://flix4u-production.up.railway.app/api/";
 
 // Get Authenticated User Details
 export const getUser = async (token) => {
