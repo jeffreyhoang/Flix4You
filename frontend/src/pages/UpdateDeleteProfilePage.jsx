@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
-import DeleteProfileButton from "../components/ProfileDashboard/DeleteProfileButton";
-import UpdateProfileForm from "../components/ProfileDashboard/UpdateProfileForm";
-import BackToProfilesButton from "../components/BackToProfilesButton";
+import UpdateProfileForm from "../components/ProfileDashboard/UpdateDeleteProfileForm";
 import { useNavigate } from "react-router-dom";
 
 const UpdateDeleteProfilePage = () => {
@@ -17,8 +15,6 @@ const UpdateDeleteProfilePage = () => {
     return  (
         <div>
             <UpdateProfileForm token={token}/>
-            <BackToProfilesButton text={"Cancel"}/>
-            <DeleteProfileButton />
         </div>
     )
 }

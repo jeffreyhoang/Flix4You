@@ -11,7 +11,7 @@ const CreateProfileButton = ({ profiles }) => {
     };
 
     return (
-        <button className="profile-button create-profile" onClick={() => navigate("/create-profile")}>
+        <button className="profile-button create-edit-profile" onClick={() => navigate("/create-profile")}>
             <FontAwesomeIcon icon={faPlus} className="profile-icon" />
             <span>Create</span>
         </button>

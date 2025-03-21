@@ -51,8 +51,8 @@ const ProfileDashboard = () => {
                 <ProfileList profiles={profiles} isSelecting={isSelecting} />
                 <CreateProfileButton profiles={profiles} />
                 <EditProfilesButton isSelecting={isSelecting} toggleEditMode={toggleEditMode}/>
-                <LogoutButton />
             </div>
+            <LogoutButton />
         </div>
     );
 };

@@ -27,14 +27,14 @@ const CreateProfileForm = ({ token }) => {
     };
 
     return (
-        <div className="login-container">
-            <div className="login-box">
+        <div className="form-container">
+            <div className="form-box">
                 <h2>Create Profile</h2>
-                {message && <p className="error">{message}</p>}
+                {message && <p className="form-message">{message}</p>}
                 <form onSubmit={handleSubmit}>
                     <input type="text" name="name" placeholder="Profile Name" onChange={handleChange} required />
                     <input type="text" name="avatar" placeholder="Avatar URL (optional)" onChange={handleChange} />
-                    <button type="submit" className="login-button">Create Profile</button>
+                    <button type="submit" className="form-button-1">Create Profile</button>
                 </form>
                 <BackToProfilesButton text={"Back"}/>
             </div>

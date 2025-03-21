@@ -28,16 +28,16 @@ const LoginForm = () => {
     };
 
     return (
-        <div className="login-container">
-            <div className="login-box">
+        <div className="form-container">
+            <div className="form-box">
                 <h2>Login</h2>
-                {message && <p className="error">{message}</p>}
+                {message && <p className="form-message">{message}</p>}
                 <form onSubmit={handleSubmit}>
                     <input type="text" name="username" placeholder="Username" onChange={handleChange} required />
                     <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
-                    <button type="submit" className="login-button">Login</button>
+                    <button type="submit" className="form-button-1">Login</button>
                 </form>
-                <button className="signup-button" onClick={() => navigate("/signup")}>Don't have an account? Sign Up</button>
+                <button className="form-button-2" onClick={() => navigate("/signup")}>Don't have an account? Sign Up</button>
             </div>
         </div>
     );

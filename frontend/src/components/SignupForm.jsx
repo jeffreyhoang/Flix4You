@@ -31,8 +31,8 @@ const SignupForm = () => {
     };
 
     return (
-        <div className="login-container">
-            <div className="login-box">
+        <div className="form-container">
+            <div className="form-box">
                 <h2>Sign Up</h2>
                 {message && <p className="error">{message}</p>}
                 <form onSubmit={handleSubmit}>
@@ -41,9 +41,9 @@ const SignupForm = () => {
                     <input type="text" name="username" placeholder="Username" onChange={handleChange} required />
                     <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
                     <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
-                    <button type="submit" className="login-button">Sign Up</button>
+                    <button type="submit" className="form-button-1">Sign Up</button>
                 </form>
-                <button className="signup-button" onClick={() => navigate("/")}>Already have an account? Login</button>
+                <button className="form-button-2" onClick={() => navigate("/")}>Already have an account? Login</button>
             </div>
         </div>
     );

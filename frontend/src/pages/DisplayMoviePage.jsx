@@ -21,9 +21,9 @@ const DisplayMoviePage = () => {
     }
 
     return (
-        <div className="movie-container">
+        <div className="dashboard-container">
             <MovieDetails />
-            <button onClick={() => navigate("/dashboard")}>Back</button>
+            <button onClick={() => navigate("/dashboard")} className="form-button-1">Back</button>
         </div>
     );
 };

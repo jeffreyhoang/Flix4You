@@ -24,8 +24,8 @@ body {
     color: #f8e45e;
 }
 
-/* Container styling */
-.login-container {
+/* Form container styling */
+.form-container {
     margin-top: 150px;
     display: flex;
     justify-content: center;
@@ -33,8 +33,8 @@ body {
     height: 100%;
 }
 
-/* Login Box styling */
-.login-box {
+/* Form box styling */
+.form-box {
     background: rgba(0, 0, 0, 0.75);
     padding: 30px;
     border-radius: 12px;
@@ -51,7 +51,7 @@ body {
 }
 
 /* Button styling */
-.login-button, .signup-button {
+.form-button-1, .form-button-2 {
     width: 100%;
     padding: 12px;
     margin-top: 15px;
@@ -66,19 +66,19 @@ body {
     text-transform: uppercase;
 }
 
-.signup-button {
+.form-button-2 {
     background: transparent;
     border: 2px solid #ff4b2b;
     color: #ff4b2b;
 }
 
-.login-button:hover {
+.form-button-1:hover {
     background: linear-gradient(135deg, #ff4b2b, #ff416c);
     box-shadow: 0 6px 12px rgba(255, 75, 43, 0.5);
     transform: translateY(-2px);
 }
 
-.signup-button:hover {
+.form-button-2:hover {
     background: #ff4b2b;
     color: white;
     transform: translateY(-2px);
@@ -142,8 +142,8 @@ tr:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Error Message Styling */
-.error {
+/* Form message styling */
+.form-message {
     color: #ff4d4d;
     font-weight: bold;
     margin-top: 10px;
@@ -278,7 +278,7 @@ tr:hover {
     margin-bottom: 5px;
 }
 
-.create-profile {
+.create-edit-profile {
     background: rgba(255, 255, 255, 0.2);
     border: 2px dashed white;
 }

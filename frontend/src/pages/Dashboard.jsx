@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import LogoutButton from "../components/LogoutButton";
 import BackToProfilesButton from "../components/BackToProfilesButton";
 import MovieList from "../components/MovieList";
-import "../styles/styles.css";
 
 const Dashboard = () => {
     const navigate = useNavigate();

@@ -6,7 +6,7 @@ const BackToProfilesButton = ({ text }) => {
 
     return (
         <nav>
-            <button onClick={() => navigate("/profile-dashboard")} className="select-profile-button">
+            <button onClick={() => navigate("/profile-dashboard")} className="form-button-2">
                 {text}
             </button>
         </nav>
