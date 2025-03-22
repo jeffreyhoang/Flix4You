@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getMovies } from "../api/movies"; 
+import { getMovies } from "../../api/movies"; 
 import { useNavigate } from "react-router-dom";
 
 const MovieList = () => {
@@ -31,8 +31,7 @@ const MovieList = () => {
     }
 
     return (
-        <div className="movie-list">
-            <h2>Movies</h2>
+        <div className="movie-container">
             {movies.map((movie) => (
                 <button key={movie.id} className="movie-button" onClick={() => handleSelectMovie(movie)}>
                     <img src={movie.poster_url} alt={movie.title} className="movie-thumbnail" />

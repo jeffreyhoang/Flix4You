@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { getProfiles } from "../api/profiles";
-import ProfileList from "../components/ProfileDashboard/ProfileList";
-import LogoutButton from "../components/LogoutButton";
-import CreateProfileButton from "../components/ProfileDashboard/CreateProfileButton";
-import EditProfilesButton from "../components/ProfileDashboard/EditProfilesButton";
+import ProfileList from "../components/profiles/ProfileList";
+import LogoutButton from "../components/buttons/LogoutButton";
+import CreateProfileButton from "../components/buttons/CreateProfileButton";
+import EditProfilesButton from "../components/buttons/EditProfileButton";
 import { useNavigate } from "react-router-dom";
 
 const ProfileDashboard = () => {
@@ -41,17 +41,14 @@ const ProfileDashboard = () => {
     };
 
     return (
-        
-        <div className="profile-grid">
+        <div className="dashboard-container">
             <h1 className="flix-header">Flix4You</h1>
 
-            <h2>{isSelecting ? "Select a Profile" : "Manage Profiles"}</h2>
+            <h2>{isSelecting ? "Who's Watching?" : "Manage Profiles"}</h2>
 
-            <div className="profiles">
-                <ProfileList profiles={profiles} isSelecting={isSelecting} />
-                <CreateProfileButton profiles={profiles} />
-                <EditProfilesButton isSelecting={isSelecting} toggleEditMode={toggleEditMode}/>
-            </div>
+            <ProfileList profiles={profiles} isSelecting={isSelecting} />
+            <CreateProfileButton profiles={profiles} />
+            <EditProfilesButton isSelecting={isSelecting} toggleEditMode={toggleEditMode}/>
             <LogoutButton />
         </div>
     );

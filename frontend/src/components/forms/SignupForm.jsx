@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { signup } from "../api/auth";
+import { signup } from "../../api/auth";
 import { useNavigate } from "react-router-dom";
 
 const SignupForm = () => {
@@ -34,7 +34,7 @@ const SignupForm = () => {
         <div className="form-container">
             <div className="form-box">
                 <h2>Sign Up</h2>
-                {message && <p className="error">{message}</p>}
+                {message && <p className="form-message">{message}</p>}
                 <form onSubmit={handleSubmit}>
                     <input type="text" name="first_name" placeholder="First Name" onChange={handleChange} required />
                     <input type="text" name="last_name" placeholder="Last Name" onChange={handleChange} required />

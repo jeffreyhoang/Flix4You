@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { updateProfile } from "../../api/profiles";
-import DeleteProfileButton from "./DeleteProfileButton"
-import BackToProfilesButton from "../BackToProfilesButton";
+import DeleteProfileButton from "../buttons/DeleteProfileButton"
+import BackToProfilesButton from "../buttons/BackToProfilesButton";
 
 const UpdateProfileForm = ({ token }) => {
     const navigate = useNavigate();

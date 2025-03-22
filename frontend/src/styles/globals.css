@@ -15,15 +15,6 @@ body {
     align-items: center;
 }
 
-.flix-header {
-    position: absolute;
-    top: 20px;
-    left: 70px;
-    font-size: 40px;
-    font-weight: bold;
-    color: #f8e45e;
-}
-
 /* Form container styling */
 .form-container {
     margin-top: 150px;
@@ -36,12 +27,22 @@ body {
 /* Form box styling */
 .form-box {
     background: rgba(0, 0, 0, 0.75);
-    padding: 30px;
+    padding: 40px;
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
     width: 380px;
     text-align: center;
     backdrop-filter: blur(8px);
+}
+
+/* Flix4U header styling */
+.flix-header {
+    position: absolute;
+    top: 20px;
+    left: 70px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f8e45e;
 }
 
 .login-box h2 {
@@ -84,7 +85,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* Input Field styling */
+/* Form input field styling */
 input[type="text"],
 input[type="password"],
 input[type="email"] {
@@ -105,20 +106,46 @@ input[type="email"]:focus{
     background: rgba(255, 255, 255, 0.2);
 }
 
-
-
 /* Dashboard container styling */
 .dashboard-container {
-    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    height: 100vh;
+    min-width: 60vh;
+    padding-top: 100px;
+
+    /*padding: 30px;
     max-width: 900px;
     background: rgba(0, 0, 0, 0.7);
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     margin: auto;
     text-align: center;
-    height: calc(100vh - 80px); /* Adjust height dynamically */
+    height: calc(100vh - 80px); /* Adjust height dynamically 
     overflow-y: auto;
     margin-top: 80px; /* Push content below navbar */
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.movie-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 
 /* Table styling */
@@ -163,7 +190,7 @@ tr:hover {
     align-items: center;
     width: 100%;
     padding: 10px 20px;
-    background: rgba(0, 0, 0, 0.85);
+    background: black;
     padding: 15px 30px;
     position: fixed;
     top: 0;
@@ -200,6 +227,7 @@ tr:hover {
     background: #555; 
     color: white;
     padding: 8px 16px;
+    margin: 12px;
     border-radius: 20px;
     cursor: pointer;
 }
@@ -236,27 +264,21 @@ tr:hover {
     transform: translateY(-2px);
 }
 
-
-.profile-grid {
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    justify-content: center; 
-    height: 100vh;  
-    width: 80vh;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.6); 
-}
-
 .profiles {
     display: flex;
     flex-direction: row;
 }
 
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .profile-button {
-    width: 120px;
-    height: 120px;
-    background: #27027d;
+    width: 140px;
+    height: 140px;
+    background: #3d0fa9;
     color: rgb(234, 246, 131);
     border: none;
     display: flex;
@@ -266,7 +288,7 @@ tr:hover {
     font-size: 14px;
     cursor: pointer;
     border-radius: 10px;
-    margin: 15px;
+    margin: 15px 15px 0px 15px;
 }
 
 .profile-button:hover {
@@ -293,4 +315,22 @@ tr:hover {
     height: 300px;  /* Set height */
     object-fit: cover; /* Ensures the image fills the box without distortion */
     border-radius: 10px; /* Optional: Adds rounded corners */
+}
+
+.movie-button {
+    padding: 10px;
+    background: white;
+    margin: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.movie-button:hover {
+    width: 250px; 
+    height: 375px;
+}
+
+.movie-button:hover .movie-thumbnail {
+    width: 230px;   /* slightly smaller to account for padding */
+    height: 355px;
 }

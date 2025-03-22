@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import LogoutButton from "../components/LogoutButton";
-import BackToProfilesButton from "../components/BackToProfilesButton";
-import MovieList from "../components/MovieList";
+import LogoutButton from "../components/buttons/LogoutButton";
+import BackToProfilesButton from "../components/buttons/BackToProfilesButton";
+import MovieList from "../components/movies/MovieList";
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -43,15 +43,14 @@ const Dashboard = () => {
                 </div>
                 <div className="navbar-right">
                     <span className="welcome-text">Welcome, {profileName}</span>
-
                     <BackToProfilesButton text={"SELECT PROFILE"}/>
-
                     <LogoutButton/>
 
                 </div>
             </nav>
 
             <div className="dashboard-container">
+                <h2>Movies</h2>
                 <MovieList />
             </div>
         </div>

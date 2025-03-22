@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import MovieDetails from "../components/MovieDetails";
+import MovieDetails from "../components/movies/MovieDetails";
 
 const DisplayMoviePage = () => {
     const navigate = useNavigate();

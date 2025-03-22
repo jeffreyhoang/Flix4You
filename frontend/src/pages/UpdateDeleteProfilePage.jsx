@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import UpdateProfileForm from "../components/ProfileDashboard/UpdateDeleteProfileForm";
+import UpdateProfileForm from "../components/forms/UpdateDeleteProfileForm";
 import { useNavigate } from "react-router-dom";
 
 const UpdateDeleteProfilePage = () => {

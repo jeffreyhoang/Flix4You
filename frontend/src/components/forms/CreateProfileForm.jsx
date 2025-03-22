@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { createProfile } from "../../api/profiles";
 import { useNavigate } from "react-router-dom";
-import BackToProfilesButton from "../BackToProfilesButton";
+import BackToProfilesButton from "../buttons/BackToProfilesButton";
 
 const CreateProfileForm = ({ token }) => {
     const navigate = useNavigate();

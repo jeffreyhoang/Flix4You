@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser} from "@fortawesome/free-solid-svg-icons";
+import { faPencil } from '@fortawesome/free-solid-svg-icons';
+
 
 const ProfileList = ({ profiles, isSelecting }) => {   // Receives profiles from ProfileDashboard
     const navigate = useNavigate();
@@ -18,13 +20,20 @@ const ProfileList = ({ profiles, isSelecting }) => {   // Receives profiles from
     };
 
     return (
-        <div className="profile-list">
+        <div className="profile-container">
             {profiles.length > 0 ? (
                 profiles.map((profile) => (
-                    <button key={profile.id} className="profile-button" onClick={() => handleSelectProfile(profile)} >
-                        <FontAwesomeIcon icon={faCircleUser} className="profile-icon" />
-                        {profile.name}
-                    </button>
+                    <div className="profile-card" key={profile.id}>
+                        <button className="profile-button" onClick={() => handleSelectProfile(profile)}>
+                            {/* Conditionally render icons based on isSelecting */}
+                            {isSelecting ? (
+                                <FontAwesomeIcon icon={faCircleUser} className="profile-icon" />
+                            ) : (
+                                <FontAwesomeIcon icon={faPencil} className="profile-icon" />
+                            )}
+                        </button>
+                        <p>{profile.name}</p>
+                    </div>
                 ))
             ) : (
                 <p>No profiles found. Create one below.</p>
