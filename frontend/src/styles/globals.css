@@ -115,7 +115,7 @@ input[type="email"]:focus{
     align-items: center;
     background: rgba(0, 0, 0, 0.7);
     height: 100vh;
-    min-width: 60vh;
+    min-width: 80vh;
     padding-top: 100px;
 
     /*padding: 30px;
@@ -315,19 +315,24 @@ tr:hover {
     height: 300px;  /* Set height */
     object-fit: cover; /* Ensures the image fills the box without distortion */
     border-radius: 10px; /* Optional: Adds rounded corners */
+    transition: all 0.3s ease;
 }
 
 .movie-button {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
     padding: 10px;
     background: white;
     margin: 10px;
     border-radius: 15px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .movie-button:hover {
-    width: 250px; 
-    height: 375px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    filter: brightness(1.2);
 }
 
 .movie-button:hover .movie-thumbnail {
