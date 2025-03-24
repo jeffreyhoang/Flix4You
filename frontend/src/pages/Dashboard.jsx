@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import LogoutButton from "../components/buttons/LogoutButton";
 import BackToProfilesButton from "../components/buttons/BackToProfilesButton";
 import MovieList from "../components/movies/MovieList";
+import VideoPlayer from "../components/movies/VideoPlayer";
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -51,6 +52,10 @@ const Dashboard = () => {
 
             <div className="dashboard-container">
                 <h2>Movies</h2>
+                <VideoPlayer
+                    title="Detour (1945)"
+                    src="https://storage.googleapis.com/movies-storage/Detour.mp4"
+                    />
                 <MovieList />
             </div>
         </div>
