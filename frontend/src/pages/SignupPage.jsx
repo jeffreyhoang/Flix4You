@@ -4,7 +4,7 @@ import SignupForm from "../components/forms/SignupForm";
 const Signup = () => {
     return (
         <div>
-            <h1 className="flix-header">Flix4You</h1>
+            <h1 className="glow-text text-warning position-absolute top-0 start-0 mt-4 ms-5 fs-8 fw-bold">Flix4You</h1>
             <SignupForm />
         </div>
     );

@@ -1,5 +1,6 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "../src/styles/globals.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import ProfileDashboard from "./pages/ProfileDashboard";

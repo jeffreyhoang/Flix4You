@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { login } from "../../api/auth";
 import { useNavigate } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Stack from "react-bootstrap/Stack";
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 const LoginForm = () => {
     const navigate = useNavigate();
@@ -28,18 +35,38 @@ const LoginForm = () => {
     };
 
     return (
-        <div className="form-container">
-            <div className="form-box">
-                <h2>Login</h2>
-                {message && <p className="form-message">{message}</p>}
-                <form onSubmit={handleSubmit}>
-                    <input type="text" name="username" placeholder="Username" onChange={handleChange} required />
-                    <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
-                    <button type="submit" className="form-button-1">Login</button>
-                </form>
-                <button className="form-button-2" onClick={() => navigate("/signup")}>Don't have an account? Sign Up</button>
-            </div>
-        </div>
+        <Container className="d-flex align-items-center justify-content-center vh-100">
+            <Row className="justify-content-center w-100">
+                <Col xs={12} sm={10} md={8} xl={5}>
+                    <div className="form-box p-4 rounded shadow">
+                        <h2 className="text-warning text-center fs-1 fw-bold">Login</h2>
+                        {message && <p className="form-message text-center fs-5">{message}</p>}
+                        <Form onSubmit={handleSubmit}>
+                            <Stack gap={3}>
+                                <Form.Control
+                                    className="form-input-box text-white" 
+                                    size="lg" 
+                                    type="text" 
+                                    name="username" 
+                                    placeholder="Username"
+                                    onChange={handleChange}
+                                />
+                                <Form.Control
+                                    className="form-input-box text-white"
+                                    size="lg"
+                                    type="password"
+                                    name="password"
+                                    placeholder="Password"
+                                    onChange={handleChange}
+                                />
+                                <Button className="custom-gradient-btn-1 w-100 mt-4 p-2" size="lg" type="submit">Login</Button>
+                            </Stack>
+                        </Form>
+                        <Button className="custom-gradient-btn-2 w-100 mt-3" size="lg" onClick={() => navigate("/Signup")}>Don't have an account? Sign up</Button>
+                    </div>
+                </Col>
+            </Row>
+        </Container>
     );
 };
 

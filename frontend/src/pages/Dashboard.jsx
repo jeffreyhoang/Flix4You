@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import LogoutButton from "../components/buttons/LogoutButton";
 import BackToProfilesButton from "../components/buttons/BackToProfilesButton";
 import MovieList from "../components/movies/MovieList";
+import Container from "react-bootstrap/esm/Container";
+
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -35,25 +37,9 @@ const Dashboard = () => {
     }
 
     return (
-        <div>
-            {/* Navbar (Might make into component) */}
-            <nav className="navbar">
-                <div className="navbar-left">
-                    <h1>Flix4U</h1>
-                </div>
-                <div className="navbar-right">
-                    <span className="welcome-text">Welcome, {profileName}</span>
-                    <BackToProfilesButton text={"SELECT PROFILE"}/>
-                    <LogoutButton/>
-
-                </div>
-            </nav>
-
-            <div className="dashboard-container">
-                <h2>Movies</h2>
-                <MovieList />
-            </div>
-        </div>
+        <Container className="dashboard-container vh-100 text-center">
+            <MovieList />
+        </Container>
     );
 };
 

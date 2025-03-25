@@ -1,0 +1,341 @@
+/* Import a modern Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+/* Global body styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.imgur.com/IerOCAQ.jpeg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form container styling */
+.form-container {
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Form box styling */
+.form-box {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    width: 380px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+}
+
+/* Flix4U header styling */
+.flix-header {
+    position: absolute;
+    top: 20px;
+    left: 70px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f8e45e;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: #f7c744;
+}
+
+/* Button styling */
+.form-button-1, .form-button-2 {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(255, 75, 43, 0.3);
+    text-transform: uppercase;
+}
+
+.form-button-2 {
+    background: transparent;
+    border: 2px solid #ff4b2b;
+    color: #ff4b2b;
+}
+
+.form-button-1:hover {
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+    box-shadow: 0 6px 12px rgba(255, 75, 43, 0.5);
+    transform: translateY(-2px);
+}
+
+.form-button-2:hover {
+    background: #ff4b2b;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Form input field styling */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    transition: background 0.3s;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus{
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Dashboard container styling */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    height: 100vh;
+    min-width: 80vh;
+    padding-top: 100px;
+
+    /*padding: 30px;
+    max-width: 900px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    margin: auto;
+    text-align: center;
+    height: calc(100vh - 80px); /* Adjust height dynamically 
+    overflow-y: auto;
+    margin-top: 80px; /* Push content below navbar */
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.movie-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+th {
+    background-color: #e50914;
+    color: white;
+}
+
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Form message styling */
+.form-message {
+    color: #ff4d4d;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 600px) {
+    .login-box, .dashboard-container {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    background: black;
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.navbar-left h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #f8e45e;
+    margin: 0;
+    cursor: pointer;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.navbar-right span {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.welcome-text {
+    color: white;
+    font-size: 16px;
+}
+
+.logging-out-button {
+    background: #555; 
+    color: white;
+    padding: 8px 16px;
+    margin: 12px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.logging-out-button:hover {
+    background: #777;
+}
+
+.select-profile-button {
+    background-color: green;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.select-profile-button:hover {
+    background: linear-gradient(to right, #FF4B2B, #FF416C);
+}
+
+.logout-button {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+}
+
+.logout-button:hover {
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+    transform: translateY(-2px);
+}
+
+.profiles {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-button {
+    width: 140px;
+    height: 140px;
+    background: #3d0fa9;
+    color: rgb(234, 246, 131);
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 15px 15px 0px 15px;
+}
+
+.profile-button:hover {
+    background: #555;
+}
+
+.profile-icon {
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.create-edit-profile {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px dashed white;
+}
+
+.logout {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px dashed white;
+}
+
+.movie-thumbnail {
+    width: 200px;   /* Set width */
+    height: 300px;  /* Set height */
+    object-fit: cover; /* Ensures the image fills the box without distortion */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+    transition: all 0.3s ease;
+}
+
+.movie-button {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 10px;
+    background: white;
+    margin: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.movie-button:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    filter: brightness(1.2);
+}
+
+.movie-button:hover .movie-thumbnail {
+    width: 230px;
+    height: 355px;
+}

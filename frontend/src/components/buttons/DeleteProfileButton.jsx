@@ -1,6 +1,7 @@
 import React from "react";
 import { deleteProfile } from "../../api/profiles";
 import { useNavigate } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
 const DeleteProfileButton = () => {
     const navigate = useNavigate();
@@ -24,7 +25,7 @@ const DeleteProfileButton = () => {
 
     return (
         <div>
-            <button onClick={handleDelete} className="logging-out-button">Delete</button>
+            <Button className="custom-btn-3 fw-bold" size="lg" onClick={handleDelete}>Delete</Button>
         </div>
     );
 }
