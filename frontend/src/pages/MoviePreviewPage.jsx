@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MovieDetails from "../components/movies/MovieDetails";
 
-const DisplayMoviePage = () => {
+const MoviePreviewPage = () => {
     const navigate = useNavigate();
     const [movie, setMovie] = useState(null);
 
@@ -21,11 +21,11 @@ const DisplayMoviePage = () => {
     }
 
     return (
-        <div className="dashboard-container">
+        <div className="">
             <MovieDetails />
             <button onClick={() => navigate("/dashboard")} className="form-button-1">Back</button>
         </div>
     );
 };
 
-export default DisplayMoviePage;
+export default MoviePreviewPage;

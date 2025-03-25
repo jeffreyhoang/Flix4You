@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import VideoPlayer from "./VideoPlayer";
 
 const MovieList = () => {
     const navigate = useNavigate();
@@ -34,8 +35,8 @@ const MovieList = () => {
     }
 
     return (
-        <Container>
-            <p2 className="luminate-text text-white text-center fs-7 fw-bold m-4">Movies</p2>
+        <Container className="">
+            <p className="luminate-text text-white text-center fs-7 fw-bold pt-5">Movies</p>
             <Row>
                 {movies.map((movie) => (
                     <Col xs={12} sm={6} md={4} lg={3} key={movie.id} className="d-flex justify-content-center align-items-center mb-4">

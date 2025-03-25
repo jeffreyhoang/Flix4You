@@ -7,7 +7,7 @@ import ProfileDashboard from "./pages/ProfileDashboard";
 import CreateProfilePage from "./pages/CreateProfilePage";
 import Dashboard from "./pages/Dashboard";
 import UpdateDeleteProfilePage from "./pages/UpdateDeleteProfilePage";
-import DisplayMoviePage from "./pages/DisplayMoviePage";
+import DisplayMoviePage from "./pages/MoviePreviewPage";
 
 function App() {
     return (

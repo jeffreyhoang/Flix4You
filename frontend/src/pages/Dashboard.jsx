@@ -36,7 +36,7 @@ const Dashboard = () => {
     }
 
     return (
-        <Container className="dashboard-container vh-100 text-center">
+        <Container className="dashboard-container vh-100 text-center ">
             <MovieList />
         </Container>
     );

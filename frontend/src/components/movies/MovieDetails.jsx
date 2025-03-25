@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import VideoPlayer from "./VideoPlayer";
 
 const MovieDetails = () => {
     const navigate = useNavigate();
@@ -15,8 +16,9 @@ const MovieDetails = () => {
         
         if(storedMovie) {
             setMovie(JSON.parse(storedMovie));
+            console.log(movie)
         } else {
-            navigate("/dashbaord");
+            navigate("/dashboard");
         }
 
     }, []);
@@ -35,6 +37,9 @@ const MovieDetails = () => {
             <p><strong>Actors:</strong> {movie.actors.map(actor => actor.name).join(", ")}</p>
             <p><strong>Directors:</strong> {movie.directors.map(director => director.name).join(", ")}</p>
             <p><strong>Genres:</strong> {movie.genres.map(genre => genre.name).join(", ")}</p>
+            <VideoPlayer
+                src={movie.movie_url}
+            />
         </div>
     );
 }

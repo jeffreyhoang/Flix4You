@@ -29,6 +29,7 @@ class Movie(models.Model):
     rating = models.FloatField(default=0.0) # Average rating (1-5 scale)
     poster_url = models.URLField(null=True, blank=True) # Movie poster image
     trailer_url = models.URLField(null=True, blank=True)    # Trailer video URL
+    movie_url = models.URLField(null=True, blank=True)   # Movie URL
 
     def __str__(self):
         return self.title
