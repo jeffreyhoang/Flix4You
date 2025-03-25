@@ -5,7 +5,6 @@ import BackToProfilesButton from "../components/buttons/BackToProfilesButton";
 import MovieList from "../components/movies/MovieList";
 import Container from "react-bootstrap/esm/Container";
 
-
 const Dashboard = () => {
     const navigate = useNavigate();
     const [profileName, setProfileName] = useState("");
