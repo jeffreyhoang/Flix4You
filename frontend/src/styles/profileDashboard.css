@@ -1,0 +1,6 @@
+/* Profile dashboard container styling */
+.profile-dashboard-container {
+    background: rgba(0, 0, 0, 0.75);
+    max-width: 800px;
+    width: 100%;
+}

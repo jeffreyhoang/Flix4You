@@ -25,7 +25,7 @@ const ProfileList = ({ profiles, isSelecting }) => {   // Receives profiles from
     };
 
     return (
-        <Container className="mb-4">
+        <Container>
             {profiles.length > 0 ? (
                 <Row className="justify-content-center">
                     {profiles.map((profile) => (

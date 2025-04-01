@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import VideoPlayer from "./VideoPlayer";
+import Spinner from 'react-bootstrap/Spinner';
 
 const MovieList = () => {
     const navigate = useNavigate();
@@ -31,11 +31,15 @@ const MovieList = () => {
     };
 
     if(loading) {
-        return <p>Loading movies...</p>;
+        return (
+            <div className="d-flex vh-100 justify-content-center align-items-center">
+                <Spinner animation="border" variant="danger" style={{ width: '6rem', height: '6rem' }}/>
+            </div>
+        )
     }
 
     return (
-        <Container className="">
+        <Container>
             <p className="luminate-text text-white text-center fs-7 fw-bold pt-5">Movies</p>
             <Row>
                 {movies.map((movie) => (

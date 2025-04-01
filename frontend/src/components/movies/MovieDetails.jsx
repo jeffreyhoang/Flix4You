@@ -4,9 +4,12 @@ import VideoPlayer from "./VideoPlayer";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Stack from "react-bootstrap/Stack";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { faComment } from "@fortawesome/free-solid-svg-icons";
+
 
 const MovieDetails = () => {
     const navigate = useNavigate();
@@ -35,9 +38,7 @@ const MovieDetails = () => {
 
     const formatDate = (dateString) =>
         new Date(dateString).toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "long",
-          day: "numeric"
+          year: "numeric"
         });
 
     function convertMinutesToHours(minutes) {
@@ -45,73 +46,69 @@ const MovieDetails = () => {
         const mins = minutes % 60;
         return `${hours}h ${mins}m`;
     }
-          
 
     return (
-        <Container className="dashboard-container ps-4 pe-4 vh-100">
-            <Row className="bg-dark">
+        <Container>
+            <Row className="text-center pt-4">
                 <VideoPlayer
                     src={movie.movie_url}
                 />
             </Row>
-            <Row className="bg-warning">
-                <h1><strong>{movie.title}</strong></h1>
-            </Row>
             <Row>
-                <Col className="bg-info">
-                    <p><strong>Released:</strong> {formatDate(movie.release_date)}</p>
+                <h2><strong>{movie.title}</strong></h2>
+            </Row>
+            <Row className="justify-content-start">
+                <Col xs="auto" className="text-start">
+                    <p>{formatDate(movie.release_date)}</p>
                 </Col>
-                <Col className="bg-danger">
-                    <p><strong>Rating:</strong> {movie.rating}/5</p>
+                <Col xs="auto" className="text-start">
+                    <p className="bg-secondary text-white px-1 rounded-1 ">
+                    {movie.rating}
+                    </p>
                 </Col>
-                <Col className="bg-success">
-                    <p><strong>Duration:</strong> {convertMinutesToHours(movie.duration)}</p>
+                <Col xs="auto" className="text-start">
+                    <p>{convertMinutesToHours(movie.duration)}</p>
                 </Col>
-                <Col className="bg-secondary">
-                    <p><strong>IMDB Rating:</strong></p>
+                <Col xs="auto" className="text-start">
+                    <p><strong>IMDb</strong></p>
                 </Col>
             </Row>
-            <Row>
+            <Row className="pt-2">
                 <Button className="custom-gradient-btn-1">Play</Button>
             </Row>
-            <Row>
+            <Row className="pt-2">
                 <Button className="custom-gradient-btn-2">Download</Button>
             </Row>
-            <Row>
+            <Row className="pt-2">
                 <p>{movie.description}</p>
             </Row>
-            <Row className="bg-warning">
-                <p><strong>Actors:</strong> {movie.actors.map(actor => actor.name).join(", ")}</p>
-            </Row>
-            <Row className="bg-info">
-                <p><strong>Directors:</strong> {movie.directors.map(director => director.name).join(", ")}</p>
+            <Row>
+                <p className="fc-grey fs-0"><strong>Cast:</strong> {movie.actors.map(actor => actor.name).join(", ")}</p>
             </Row>
             <Row>
-                <Col>
-                    <Button>Watchlist (+)</Button>
+                <p className="fc-grey fs-0"><strong>Directors:</strong> {movie.directors.map(director => director.name).join(", ")}</p>
+            </Row>
+            <Row className="justify-content-start">
+                <Col xs="auto">
+                    <Button variant="link" className="text-white p-2">
+                        <FontAwesomeIcon icon={faPlus} />
+                    </Button>
+                    <span className="fs--1">My List</span>
                 </Col>
-                <Col>
-                    <Button>Rate</Button>
+                <Col xs="auto">
+                    <Button variant="link" className="text-white p-2">
+                        <FontAwesomeIcon icon={faThumbsUp} />
+                    </Button>
+                    <span className="fs--1">Rate</span>
                 </Col>
-                <Col>
-                    <Button>Comment</Button>
+                <Col xs="auto">
+                    <Button variant="link" className="text-white p-2">
+                        <FontAwesomeIcon icon={faComment} />
+                    </Button>
+                    <span className="fs--1">Comment</span>
                 </Col>
             </Row>
         </Container>
-
-        /*<div>
-            <h2>{movie.title}</h2>
-            <p><strong>Release Date:</strong>  {movie.release_date}</p>
-            <p><strong>Duration:</strong>  {movie.duration} minutes</p>
-            <p><strong>Rating:</strong>  {movie.rating}/5 stars</p>
-            <p><strong>Description:</strong> {movie.description}</p>
-            <p><strong>Actors:</strong> {movie.actors.map(actor => actor.name).join(", ")}</p>
-            <p><strong>Directors:</strong> {movie.directors.map(director => director.name).join(", ")}</p>
-            <p><strong>Genres:</strong> {movie.genres.map(genre => genre.name).join(", ")}</p>
-            <VideoPlayer
-                src={movie.movie_url}
-            />
-        </div>*/
     );
 }
 

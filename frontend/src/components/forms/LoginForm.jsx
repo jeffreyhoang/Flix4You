@@ -7,7 +7,6 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Stack from "react-bootstrap/Stack";
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 const LoginForm = () => {
     const navigate = useNavigate();
@@ -45,7 +44,7 @@ const LoginForm = () => {
                             <Stack gap={3}>
                                 <Form.Control
                                     className="form-input-box text-white" 
-                                    size="lg" 
+                                    size="md" 
                                     type="text" 
                                     name="username" 
                                     placeholder="Username"
@@ -53,16 +52,16 @@ const LoginForm = () => {
                                 />
                                 <Form.Control
                                     className="form-input-box text-white"
-                                    size="lg"
+                                    size="md"
                                     type="password"
                                     name="password"
                                     placeholder="Password"
                                     onChange={handleChange}
                                 />
-                                <Button className="custom-gradient-btn-1 w-100 mt-4 p-2" size="lg" type="submit">Login</Button>
+                                <Button className="custom-gradient-btn-1 w-100 mt-3 p-2" size="md" type="submit">Login</Button>
                             </Stack>
                         </Form>
-                        <Button className="custom-gradient-btn-2 w-100 mt-3" size="lg" onClick={() => navigate("/Signup")}>Don't have an account? Sign up</Button>
+                        <Button className="custom-gradient-btn-2 w-100 mt-3" size="md" onClick={() => navigate("/Signup")}>Don't have an account? Sign up</Button>
                     </div>
                 </Col>
             </Row>

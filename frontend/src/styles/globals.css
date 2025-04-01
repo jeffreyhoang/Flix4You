@@ -1,4 +1,4 @@
-/* custom.css */
+/* globals.css */
 
 /* Styles the entire app */
 body {
@@ -20,149 +20,19 @@ body {
       0 0 8px rgba(248, 228, 94, 0.4);
 }    
 
-/* Add white lighting around text */
-.luminate-text {
-    color: #fff;
-    text-shadow:
-      0 0 5px rgba(255, 255, 255, 0.6),
-      0 0 10px rgba(255, 255, 255, 0.6),
-      0 0 20px rgba(255, 255, 255, 0.8);
-    filter: brightness(1.2);
-}
-  
-/* Form message styling */
-.form-message {
-    color: #ff4b2b;
-}
-
-/* Form box styling */
-.form-box {
-    background: rgba(0, 0, 0, 0.85);
-}
-
-/* Form input box styling */
-.form-input-box {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: none;
-    outline: none;
-    transition: background 0.3s;
-}
-
-/* Form input box styling open focus */
-.form-input-box:focus {
-    background: rgba(255, 255, 255, 0.2);
-    outline: none;
-    border-color: #f8e45e;
-    box-shadow: 0 0 8px rgba(248, 228, 94, 0.6);
-
-}
-
-/* Form input box placeholder styling */
-.form-input-box::placeholder {
-    color: rgba(255, 255, 255, 0.4);
-    opacity: 1;
-  }  
-
-/* Dashboard container styling */
-.dashboard-container {
-    background: rgba(0, 0, 0, 0.75);
-    max-width: 800px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-.dashboard-content-box {
-    max-width: 500px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-/* Button styling */
-.custom-gradient-btn-1 {
-    background: linear-gradient(135deg, #ff416c, #ff4b2b);
-    color: white;
-    font-weight: bold;
-    border-radius: 30px;
-    border: none;
-    text-transform: uppercase;
-    transition: 0.3s;
-}
-
-/* Button hover styling */
-.custom-gradient-btn-1:hover {
-    background: linear-gradient(135deg, #ff4b2b, #ff416c);
-    transform: translateY(-2px);
-}
-
-/* Button styling */
-.custom-gradient-btn-2 {
-    background: transparent;    
-    color: #ff4b2b;
-    font-weight: bold;
-    border-radius: 30px;
-    border: 4px solid #ff4b2b;    
-    text-transform: uppercase;
-    transition: 0.3s;
-}
-
-/* Button hover styling */
-.custom-gradient-btn-2:hover {
-    background: #ff4b2b;
-    color: white;
-    border: #ff4b2b;
-    transform: translateY(-2px);
-}
-
-/* Button styling */
-.custom-btn-3 {
-    background: #555;
-    border: #555;
-    border-radius: 20px;
-}
-
-/* Button hover styling */
-.custom-btn-3:hover {
-    background: #777;
-}
-
-/* Circular button styling */
-.create-profile-btn {
-    height: 125px;
-    width: 125px;
-    background: #555;
-    border: none;
-}
-
-/* Circular button styling */
-.create-profile-btn:hover {
-    background: #777;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-    filter: brightness(1.2);
-}
-
-.movie-button {
-    background: white;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.movie-thumbnail {
-    width: 150px;   /* Set width */
-    height: 225px;  /* Set height */
-    object-fit: cover; /* Ensures the image fills the box without distortion */
-    border-radius: 10px; /* Optional: Adds rounded corners */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.movie-button:hover {
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-    filter: brightness(1.2);
-    transform: scale(1.2);
+/* Font Colors */
+.fc-grey {
+    color: rgb(151, 151, 151);
 }
 
 /* Font Sizes */
+.fs-0 {
+    font-size: 14px;
+}
+
+.fs--1 {
+    font-size: 12px;
+}
 .fs-7 {
     font-size: 48px;
 }

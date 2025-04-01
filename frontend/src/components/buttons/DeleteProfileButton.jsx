@@ -25,7 +25,7 @@ const DeleteProfileButton = () => {
 
     return (
         <div>
-            <Button className="custom-btn-3 fw-bold" size="lg" onClick={handleDelete}>Delete</Button>
+            <Button className="custom-btn-3 fw-bold" size="md" onClick={handleDelete}>Delete</Button>
         </div>
     );
 }

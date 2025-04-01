@@ -1,0 +1,64 @@
+/* buttons.css */
+
+/* Button styling */
+.custom-gradient-btn-1 {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    color: white;
+    font-weight: bold;
+    border-radius: 30px;
+    border: none;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+/* Button hover styling */
+.custom-gradient-btn-1:hover {
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+    transform: translateY(-2px);
+}
+
+/* Button styling */
+.custom-gradient-btn-2 {
+    background: transparent;    
+    color: #ff4b2b;
+    font-weight: bold;
+    border-radius: 30px;
+    border: 4px solid #ff4b2b;    
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+/* Button hover styling */
+.custom-gradient-btn-2:hover {
+    background: #ff4b2b;;
+    color: white;
+    border: 4px solid #ff4b2b;
+    transform: translateY(-2px);
+}
+
+/* Button styling */
+.custom-btn-3 {
+    background: #555;
+    border: #555;
+    border-radius: 20px;
+}
+
+/* Button hover styling */
+.custom-btn-3:hover {
+    background: #777;
+}
+
+/* Circular button styling */
+.create-profile-btn {
+    height: 125px;
+    width: 125px;
+    background: #555;
+    border: none;
+}
+
+/* Circular button styling */
+.create-profile-btn:hover {
+    background: #777;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    filter: brightness(1.2);
+}

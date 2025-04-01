@@ -47,20 +47,48 @@ const SignupForm = () => {
                             <Stack gap={3}>
                                 <Form.Control 
                                     className="form-input-box text-white" 
-                                    size="lg" 
+                                    size="md" 
                                     type="text" 
                                     name="first_name" 
                                     placeholder="First Name" 
                                     onChange={handleChange} 
                                 />
-                                <Form.Control className="form-input-box text-white" size="lg" type="text" name="last_name" placeholder="Last Name" onChange={handleChange} />
-                                <Form.Control className="form-input-box text-white" size="lg" type="text" name="username" placeholder="Username" onChange={handleChange} />
-                                <Form.Control className="form-input-box text-white" size="lg" type="email" name="email" placeholder="Email" onChange={handleChange} />
-                                <Form.Control className="form-input-box text-white" size="lg" type="password" name="password" placeholder="Password" onChange={handleChange} />
-                                <Button className="custom-gradient-btn-1 w-100 mt-4 p-2" size="lg" type="submit">Sign Up</Button>
+                                <Form.Control 
+                                    className="form-input-box text-white" 
+                                    size="md" 
+                                    type="text" 
+                                    name="last_name" 
+                                    placeholder="Last Name" 
+                                    onChange={handleChange} 
+                                />
+                                <Form.Control 
+                                    className="form-input-box text-white" 
+                                    size="md" 
+                                    type="text" 
+                                    name="username" 
+                                    placeholder="Username" 
+                                    onChange={handleChange} 
+                                />
+                                <Form.Control 
+                                    className="form-input-box text-white" 
+                                    size="md" 
+                                    type="email" 
+                                    name="email" 
+                                    placeholder="Email" 
+                                    onChange={handleChange} 
+                                />
+                                <Form.Control 
+                                    className="form-input-box text-white" 
+                                    size="md" 
+                                    type="password" 
+                                    name="password" 
+                                    placeholder="Password" 
+                                    onChange={handleChange} 
+                                />
+                                <Button className="custom-gradient-btn-1 w-100 mt-3 p-2" size="md" type="submit">Sign Up</Button>
                             </Stack>
                         </Form>
-                        <Button className="custom-gradient-btn-2 w-100 mt-3" size="lg" onClick={() => navigate("/")}>Already have an account? Login</Button>
+                        <Button className="custom-gradient-btn-2 w-100 mt-3" size="md" onClick={() => navigate("/")}>Already have an account? Login</Button>
                     </div>
                 </Col>
             </Row>

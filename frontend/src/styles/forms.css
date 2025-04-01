@@ -1,0 +1,35 @@
+/* forms.css */
+
+/* Form message styling */
+.form-message {
+    color: #ff4b2b;
+}
+
+/* Form box styling */
+.form-box {
+    background: rgba(0, 0, 0, 0.85);
+}
+
+/* Form input box styling */
+.form-input-box {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    outline: none;
+    transition: background 0.3s;
+}
+
+/* Form input box styling open focus */
+.form-input-box:focus {
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+    border-color: #f8e45e;
+    box-shadow: 0 0 8px rgba(248, 228, 94, 0.6);
+
+}
+
+/* Form input box placeholder styling */
+.form-input-box::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+    opacity: 1;
+  }  

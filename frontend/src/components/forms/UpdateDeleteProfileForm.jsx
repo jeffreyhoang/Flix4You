@@ -46,7 +46,7 @@ const UpdateProfileForm = ({ token }) => {
                             <Stack gap={3}>
                                 <Form.Control 
                                     className="form-input-box text-white" 
-                                    size="lg" 
+                                    size="md" 
                                     type="text" 
                                     name="name" 
                                     placeholder="Profile Name"
@@ -54,17 +54,17 @@ const UpdateProfileForm = ({ token }) => {
                                 />
                                 <Form.Control 
                                     className="form-input-box text-white" 
-                                    size="lg" 
+                                    size="md" 
                                     type="text" 
                                     name="avatar" 
                                     placeholder="Avatar URL (optional)"
                                     onChange={handleChange}
                                 />
-                                <Button className="custom-gradient-btn-1 w-100 mt-4 p-2" size="lg" type="submit" >Update</Button>
+                                <Button className="custom-gradient-btn-1 w-100 mt-3 p-2" size="md" type="submit" >Update</Button>
                             </Stack>
                         </Form>
                         <Stack className="mt-3"gap={3}>
-                            <Button className="custom-gradient-btn-2 w-100" size="lg" onClick={() => navigate("/profile-dashboard")}>Back</Button>
+                            <Button className="custom-gradient-btn-2 w-100" size="md" onClick={() => navigate("/profile-dashboard")}>Back</Button>
                             <DeleteProfileButton />
                         </Stack>
                     </div>

@@ -1,5 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "../src/styles/globals.css";
+import "@/styles/globals.css";
+import "@/styles/buttons.css";
+import "@/styles/forms.css";
+import "@/styles/dashboard.css";
+import "@/styles/profileDashboard.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";

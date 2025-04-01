@@ -1,0 +1,45 @@
+/* DASHBOARD STYLING */
+
+/* Profile dashboard container styling */
+.dashboard-container {
+    background: rgba(0, 0, 0, 0.75);
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Add white lighting around text */
+.luminate-text {
+    color: #fff;
+    text-shadow:
+      0 0 5px rgba(255, 255, 255, 0.6),
+      0 0 10px rgba(255, 255, 255, 0.6),
+      0 0 20px rgba(255, 255, 255, 0.8);
+    filter: brightness(1.2);
+}
+
+/* Movie button and thumbnail styling */
+.movie-thumbnail {
+    width: 150px;   /* Set width */
+    height: 225px;  /* Set height */
+    object-fit: cover; /* Ensures the image fills the box without distortion */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-button {
+    background: white;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.movie-button:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    filter: brightness(1.2);
+    transform: scale(1.2);
+}
+
+
+
+/* MOVIE PREVIEW PAGE STYLING */
+
