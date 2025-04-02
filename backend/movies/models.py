@@ -26,7 +26,8 @@ class Movie(models.Model):
     actors = models.ManyToManyField(Actor)  # A movie contains multiple actors
     directors = models.ManyToManyField(Director)    # A movie contains multiple directors
     genres = models.ManyToManyField(Genre)   # A movie contains multiple genres
-    rating = models.FloatField(default=0.0) # Average rating (1-5 scale)
+    rating = models.TextField(max_length=5)   # R, PG, PG-13, etc.
+    imdbRating = models.FloatField(default=0.0)   # IMDb Rating (1-10)
     poster_url = models.URLField(null=True, blank=True) # Movie poster image
     trailer_url = models.URLField(null=True, blank=True)    # Trailer video URL
     movie_url = models.URLField(null=True, blank=True)   # Movie URL
