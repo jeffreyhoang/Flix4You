@@ -1,7 +1,6 @@
-import axios from "axios";
-import API_BASE_URL from "./config"; // Import the base URL
+import axiosInstance from "./axiosInstance";
 
 // List all movies
 export const getMovies = async () => {
-    return axios.get(`${API_BASE_URL}movies/`);
+    return axiosInstance.get("movies/");
 };

@@ -43,3 +43,11 @@
 
 /* MOVIE PREVIEW PAGE STYLING */
 
+/* Makes exit button bounce on hover */
+.close-button {
+    transition: transform 0.3s ease;
+  }
+  
+.close-button:hover {
+    transform: translateY(-5px) scale(1.1);
+}

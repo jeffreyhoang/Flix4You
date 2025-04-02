@@ -5,6 +5,7 @@ Django settings for backend project.
 from pathlib import Path
 import dj_database_url
 import os
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -146,3 +147,11 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),   # or longer if needed
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+    "ROTATE_REFRESH_TOKENS": True,
+    "BLACKLIST_AFTER_ROTATION": True,
+    "AUTH_HEADER_TYPES": ("Bearer",),
+}

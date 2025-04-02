@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import LogoutButton from "../components/buttons/LogoutButton";
-import BackToProfilesButton from "../components/buttons/BackToProfilesButton";
-import MovieList from "../components/movies/MovieList";
+import BackToProfilesButton from "@/components/buttons/BackToProfilesButton";
+import MovieList from "@/components/movies/MovieList";
+import NavBar from "@/components/NavBar";
 import Container from "react-bootstrap/esm/Container";
 
 const Dashboard = () => {
@@ -36,7 +36,8 @@ const Dashboard = () => {
     }
 
     return (
-        <Container className="dashboard-container vh-100 text-center ">
+        <Container className="dashboard-container vh-100 text-center">
+            <NavBar profileName={profileName}/>
             <MovieList />
         </Container>
     );

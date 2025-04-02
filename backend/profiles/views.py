@@ -70,7 +70,7 @@ Logs out the user by blacklisting the token
 - POST /api/logout/
 '''
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])
+@permission_classes([])
 def logout_view(request):
     try:
         refresh_token = request.data["refresh"]
@@ -78,4 +78,4 @@ def logout_view(request):
         token.blacklist()
         return Response({"message": "Successfully logged out"}, status=200)
     except Exception as e:
-        return Response({"error": "Invalid token"}, status=400)
+        return Response({"message": "Token invalid or already expired — treated as logged out."}, status=200)

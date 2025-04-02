@@ -25,7 +25,6 @@ const MovieDetails = () => {
         
         if(storedMovie) {
             setMovie(JSON.parse(storedMovie));
-            console.log(movie)
         } else {
             navigate("/dashboard");
         }
