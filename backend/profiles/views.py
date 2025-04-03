@@ -42,7 +42,7 @@ Retrieve, update, and delete a single profile
 - PUT /api/profiles/{id}
 - DELETE /api/profiles/{id}
 '''
-class ProfileDetailView(generics.RetrieveUpdateDestroyAPIView):
+class ProfileRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ProfileSerializer
     permission_classes = [IsAuthenticated]
 

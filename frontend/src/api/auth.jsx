@@ -1,21 +1,22 @@
-import axiosInstance from "./axiosInstance";
+import axios from "axios";
+import API_BASE_URL from "@/api/config";
 
 // Signup
 export const signup = async (userData) => {
-    return axiosInstance.post("signup/", userData);
+    return axios.post(`${API_BASE_URL}signup/`, userData);
 };
 
 // Login
 export const login = async (credentials) => {
-    return axiosInstance.post("login/", credentials);
+    return axios.post(`${API_BASE_URL}login/`, credentials);
 };
 
-// Logout
+// Logout (Black refresh token)
 export const logout = async (refreshToken) => {
-    return axiosInstance.post("logout/", { refresh: refreshToken });
+    return axios.post(`${API_BASE_URL}logout/`, { refresh: refreshToken });
 };
 
-// Refresh Token
+// Refresh Token (Get new access token)
 export const refreshToken = async (refreshToken) => {
-    return axiosInstance.post("token/refresh/", { refresh: refreshToken });
+    return axios.post(`${API_BASE_URL}token/refresh/`, { refresh: refreshToken });
 };

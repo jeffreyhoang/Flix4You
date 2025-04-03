@@ -6,14 +6,13 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
-import { faComment } from "@fortawesome/free-solid-svg-icons";
-
+import { faThumbsUp, faComment } from "@fortawesome/free-solid-svg-icons";
+import AddWatchlistButton from "@/components/buttons/AddWatchlistButton";
 
 const MovieDetails = () => {
     const navigate = useNavigate();
     const [movie, setMovie] = useState(null);
+    const [profile, setProfile] = useState(null);
     const token = localStorage.getItem("access_token")
 
     useEffect(() => {
@@ -22,9 +21,15 @@ const MovieDetails = () => {
         }
 
         const storedMovie = localStorage.getItem("selected_movie");
+        const storedProfile = localStorage.getItem("selected_profile");
         
         if(storedMovie) {
             setMovie(JSON.parse(storedMovie));
+        } else {
+            navigate("/dashboard");
+        }
+        if(storedProfile) {
+            setProfile(JSON.parse(storedProfile));
         } else {
             navigate("/dashboard");
         }
@@ -69,7 +74,7 @@ const MovieDetails = () => {
                     <p>{convertMinutesToHours(movie.duration)}</p>
                 </Col>
                 <Col xs="auto" className="text-start">
-                    <p><strong>IMDb</strong></p>
+                    <p><strong>IMDb {movie.imdbRating}</strong></p>
                 </Col>
             </Row>
             <Row className="pt-2">
@@ -89,22 +94,19 @@ const MovieDetails = () => {
             </Row>
             <Row className="justify-content-start">
                 <Col xs="auto">
-                    <Button variant="link" className="text-white p-2">
-                        <FontAwesomeIcon icon={faPlus} />
-                    </Button>
-                    <span className="fs--1">My List</span>
+                    <AddWatchlistButton token={token} profileId={profile.id} movieId={movie.id}/>
                 </Col>
                 <Col xs="auto">
-                    <Button variant="link" className="text-white p-2">
+                    <Button variant="link" className="text-white p-2 d-flex flex-column text-decoration-none">
                         <FontAwesomeIcon icon={faThumbsUp} />
+                        <span className="fs--1">Rate</span>
                     </Button>
-                    <span className="fs--1">Rate</span>
                 </Col>
                 <Col xs="auto">
-                    <Button variant="link" className="text-white p-2">
+                    <Button variant="link" className="text-white p-2 d-flex flex-column text-decoration-none">
                         <FontAwesomeIcon icon={faComment} />
+                        <span className="fs--1">Comment</span>
                     </Button>
-                    <span className="fs--1">Comment</span>
                 </Col>
             </Row>
         </Container>
