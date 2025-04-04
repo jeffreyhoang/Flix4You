@@ -32,3 +32,36 @@ export const deleteWatchlistMovie = async (token, profileId, movieId) => {
         headers: { Authorization: `Bearer ${token}` }
     });
 };
+
+// Create a like/dislike
+export const createLikeDislike = async (token, profileId, movieId, isLike) => {
+    return axios.post(`${API_BASE_URL}likedislike/profile/${profileId}/`, {
+        movie: movieId,
+        is_like: isLike
+    }, {
+        headers: { Authorization: `Bearer ${token}` }
+    });
+};
+
+// Retrieve a single like/dislike
+export const getLikeDislike = async (token, profileId, movieId) => {
+    return axios.get(`${API_BASE_URL}likedislike/profile/${profileId}/movie/${movieId}/`, {
+        headers: { Authorization: `Bearer ${token}` }
+    });
+}
+
+// Update a single like/dislike
+export const updateLikeDislike = async (token, profileId, movieId, isLike) => {
+    return axios.patch(`${API_BASE_URL}likedislike/profile/${profileId}/movie/${movieId}/`, {
+        is_like: isLike
+    }, {
+        headers: { Authorization: `Bearer ${token}` }
+    });
+}
+
+// Delete a single like/dislike
+export const deleteLikeDislike = async (token, profileId, movieId) => {
+    return axios.delete(`${API_BASE_URL}likedislike/profile/${profileId}/movie/${movieId}/`, {
+        headers: { Authorization: `Bearer ${token}` }
+    });
+}

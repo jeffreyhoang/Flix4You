@@ -25,14 +25,12 @@ const AddWatchlistButton = ({ token, profileId, movieId }) => {
             if (inWatchlist) {
                 await deleteWatchlistMovie(token, profileId, movieId);
                 setInWatchlist(false)
-                console.log(1);
             } else {
                 await createWatchlistMovie(token, profileId, movieId);
                 setInWatchlist(true)
-                console.log(2);
             }
         } catch (error) {
-            
+            console.log("Toggle error: ", error)
         }
     }
 

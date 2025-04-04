@@ -6,8 +6,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faThumbsUp, faComment } from "@fortawesome/free-solid-svg-icons";
+import { faComment } from "@fortawesome/free-solid-svg-icons";
 import AddWatchlistButton from "@/components/buttons/AddWatchlistButton";
+import AddLikedislikeButton from "@/components/buttons/AddLikedislikeButton";
 
 const MovieDetails = () => {
     const navigate = useNavigate();
@@ -94,13 +95,10 @@ const MovieDetails = () => {
             </Row>
             <Row className="justify-content-start">
                 <Col xs="auto">
-                    <AddWatchlistButton token={token} profileId={profile.id} movieId={movie.id}/>
+                    <AddWatchlistButton token={token} profileId={profile.id} movieId={movie.id} />
                 </Col>
                 <Col xs="auto">
-                    <Button variant="link" className="text-white p-2 d-flex flex-column text-decoration-none">
-                        <FontAwesomeIcon icon={faThumbsUp} />
-                        <span className="fs--1">Rate</span>
-                    </Button>
+                    <AddLikedislikeButton token={token} profileId={profile.id} movieId={movie.id} />
                 </Col>
                 <Col xs="auto">
                     <Button variant="link" className="text-white p-2 d-flex flex-column text-decoration-none">

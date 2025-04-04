@@ -51,3 +51,12 @@
 .close-button:hover {
     transform: translateY(-5px) scale(1.1);
 }
+
+
+/* Rate pop-up button styling */
+.rate-button {
+    top: -2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
