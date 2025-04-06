@@ -101,7 +101,7 @@ const MovieDetails = () => {
                     <AddLikedislikeButton token={token} profileId={profile.id} movieId={movie.id} />
                 </Col>
                 <Col xs="auto">
-                    <Button variant="link" className="text-white p-2 d-flex flex-column text-decoration-none">
+                    <Button variant="link" className="text-white p-2 d-flex flex-column text-decoration-none" onClick={() => navigate("/comment")}>
                         <FontAwesomeIcon icon={faComment} />
                         <span className="fs--1">Comment</span>
                     </Button>

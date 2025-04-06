@@ -65,3 +65,17 @@ export const deleteLikeDislike = async (token, profileId, movieId) => {
         headers: { Authorization: `Bearer ${token}` }
     });
 }
+
+// Create a single comment
+export const createComment = async (token, profileId, movieId, commentText) => {
+    return axios.post(`${API_BASE_URL}comment/profile/${profileId}/`, {
+        movie: movieId,
+        comment: commentText
+    }, {
+        headers: { Authorization: `Bearer ${token}` }
+    })
+}
+
+// Retrive a single comment
+// Update a single comment
+// Delete a single comment

@@ -24,7 +24,6 @@ const UpdateProfileForm = ({ token }) => {
         e.preventDefault();
         const storedProfile = JSON.parse(localStorage.getItem("selected_profile"));
         const profileId = storedProfile.id;
-        console.log(1);
 
         try {
             await updateProfile(token, profileId, { name: formData.name, avatar: formData.avatar || null });

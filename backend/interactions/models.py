@@ -26,3 +26,13 @@ class LikeDislike(models.Model):
 
     def __str__(self):
         return f"{"Like" if self.is_like else "Dislike"} - {self.profile.name} - {self.movie.title}"
+    
+# Comment entry
+class Comment(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)   # Each comment is linked to a profile
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)   # Each comment is linked to a movie
+    comment = models.TextField()
+    added_at = models.DateTimeField(auto_now_add=True)  # Timestamp when added
+
+    def __str__(self):
+        return f"{self.profile.name} - {self.movie.title} - {self.comment}"

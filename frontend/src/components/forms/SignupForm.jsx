@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { React, useState } from "react";
 import { signup } from "../../api/auth";
 import { useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
