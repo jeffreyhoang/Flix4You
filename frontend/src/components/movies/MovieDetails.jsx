@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faComment } from "@fortawesome/free-solid-svg-icons";
+import { faComment as faCommentRegular } from "@fortawesome/free-regular-svg-icons";
 import AddWatchlistButton from "@/components/buttons/AddWatchlistButton";
 import AddLikedislikeButton from "@/components/buttons/AddLikedislikeButton";
 
@@ -102,7 +102,7 @@ const MovieDetails = () => {
                 </Col>
                 <Col xs="auto">
                     <Button variant="link" className="text-white p-2 d-flex flex-column text-decoration-none" onClick={() => navigate("/comment")}>
-                        <FontAwesomeIcon icon={faComment} />
+                        <FontAwesomeIcon icon={faCommentRegular} />
                         <span className="fs--1">Comment</span>
                     </Button>
                 </Col>
