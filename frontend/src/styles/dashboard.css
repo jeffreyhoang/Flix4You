@@ -36,9 +36,17 @@
 .movie-button:hover {
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
     filter: brightness(1.2);
-    transform: scale(1.2);
+    transform: scale(1.05);
 }
 
+/* Movie list styling for watchlist movies */
+.watchlist-container {
+    display: flex; 
+    overflow-x: auto; 
+    white-space: nowrap; /* Prevent wrapping */
+    padding: 20px 20px 20px 20px; 
+    gap: 20px;
+}
 
 
 /* MOVIE PREVIEW PAGE STYLING */
