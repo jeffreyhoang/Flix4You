@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import VideoPlayer from "./VideoPlayer";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment as faCommentRegular } from "@fortawesome/free-regular-svg-icons";
+import VideoPlayer from "@/components/movies/VideoPlayer";
 import AddWatchlistButton from "@/components/buttons/AddWatchlistButton";
 import AddLikedislikeButton from "@/components/buttons/AddLikedislikeButton";
+import PlayButton from "@/components/buttons/PlayButton";
+import DownloadButton from "@/components/buttons/DownloadButton";
 import LikesDislikesCount from "@/components/interactions/LikesDislikesCount";
 
 const MovieDetails = () => {
@@ -16,6 +18,7 @@ const MovieDetails = () => {
     const [movie, setMovie] = useState(null);
     const [profile, setProfile] = useState(null);
     const token = localStorage.getItem("access_token")
+    const videoRef = useRef(null);
 
     useEffect(() => {
         if(!token) {
@@ -56,9 +59,7 @@ const MovieDetails = () => {
     return (
         <Container>
             <Row className="text-center pt-4">
-                <VideoPlayer
-                    src={movie.movie_url}
-                />
+                <VideoPlayer src={movie.movie_url} videoRef={videoRef} />
             </Row>
             <Row>
                 <h2><strong>{movie.title}</strong></h2>
@@ -86,10 +87,10 @@ const MovieDetails = () => {
                 </Col>
             </Row>
             <Row className="pt-2">
-                <Button className="custom-gradient-btn-1">Play</Button>
+                <PlayButton videoRef={videoRef} />
             </Row>
             <Row className="pt-2">
-                <Button className="custom-gradient-btn-2">Download</Button>
+                <DownloadButton movie={movie}/>
             </Row>
             <Row className="pt-2">
                 <p>{movie.description}</p>
