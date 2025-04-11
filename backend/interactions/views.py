@@ -92,3 +92,15 @@ class CommentRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
         profile_id = self.kwargs["profile_id"]
         movie_id = self.kwargs["movie_id"]
         return get_object_or_404(Comment, profile_id=profile_id, movie_id=movie_id)
+    
+'''
+List all comments of a movie
+- GET /api/coment/movie/{movie_id}/
+'''
+class CommentListView(generics.ListAPIView):
+    serializer_class = CommentSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        movie_id = self.kwargs["movie_id"]
+        return Comment.objects.filter(movie_id=movie_id)

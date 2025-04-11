@@ -17,20 +17,26 @@ const CommentForm = ( {token, profileId, movieId} ) => {
     const handleSubmit = async (e) => {
         try {
             await createComment(token, profileId, movieId, commentText);
-            alert("Comment successful...");
         } catch (error) {
             console.log("Comment failed: ", error);
         }
     };
 
     return (
-        <Form onSubmit={handleSubmit}>
-            <Form.Group>
-                <Form.Label>Comment</Form.Label>
-                <Form.Control as="textarea" rows={3} onChange={handleChange}/>
-            </Form.Group>
-            <Button type="submit">Submit</Button>
-        </Form>
+        <Container className="comment-form-container text-center">
+            <Form onSubmit={handleSubmit}>
+                <Form.Group>
+                    <Form.Control 
+                        as="textarea" 
+                        rows={3} 
+                        placeholder="Post a comment..." 
+                        className="input-box" 
+                        onChange={handleChange}
+                    />
+                </Form.Group>
+                <Button className="custom-gradient-btn-1 mt-2" type="submit">Submit</Button>
+            </Form>
+        </Container>
     )
 }
 

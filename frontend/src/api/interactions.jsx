@@ -79,3 +79,10 @@ export const createComment = async (token, profileId, movieId, commentText) => {
 // Retrive a single comment
 // Update a single comment
 // Delete a single comment
+
+// List all comments under a movie
+export const listComments = async (token, movieId) => {
+    return axios.get(`${API_BASE_URL}comment/movie/${movieId}/`, {
+        headers: { Authorization: `Bearer ${token}` }
+    })
+}

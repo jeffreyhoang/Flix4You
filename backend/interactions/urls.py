@@ -4,7 +4,8 @@ from .views import ( WatchlistListCreateView,
                      LikeDislikeCreateView, 
                      LikeDislikeRetrieveUpdateDestroyView,
                      CommentCreateView,
-                     CommentRetrieveUpdateDestroyView )
+                     CommentRetrieveUpdateDestroyView,
+                     CommentListView )
 
 urlpatterns = [
     # Watchlist url endpoints
@@ -18,4 +19,5 @@ urlpatterns = [
     # Comment url endpoints
     path("comment/profile/<int:profile_id>/", CommentCreateView.as_view(), name="comment-create"),
     path("comment/profile/<int:profile_id>/movie/<int:movie_id>/", CommentRetrieveUpdateDestroyView.as_view(), name="comment-retrieve-update-destroy"),
+    path("comment/movie/<int:movie_id>/", CommentListView.as_view(), name="comment-list"),
 ]

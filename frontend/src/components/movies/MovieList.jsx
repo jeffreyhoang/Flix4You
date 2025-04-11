@@ -15,6 +15,10 @@ const MovieList = () => {
     const [allMovies, setAllMovies] = useState([]);
     const [watchlistMovies, setWatchlistMovies] = useState([]);
     const [dramaMovies, setDramaMovies] = useState([]);
+    const [comedyMovies, setComedyMovies] = useState([]);
+    const [horrorMovies, setHorrorMovies] = useState([]);
+    const [adventureMovies, setAdventureMovies] = useState([]);
+
     const [loading, setLoading] = useState(true);
     const token = localStorage.getItem("access_token");
     const profile = localStorage.getItem("selected_profile");
@@ -25,7 +29,11 @@ const MovieList = () => {
             try {
                 // Fetch movie data
                 const allMoviesResponse = await getMovies();
-                const genreResponse = await getMoviesByGenre(token, "Drama");
+                const dramaResponse = await getMoviesByGenre(token, "Drama");
+                const comedyResponse = await getMoviesByGenre(token, "Comedy");
+                const horrorResponse = await getMoviesByGenre(token, "Horror");
+                const adventureResponse = await getMoviesByGenre(token, "Adventure");
+
 
                 // Fetch and set watchlist movie data to state
                 const movieIdsResponse = await getWatchlistMovies(token, profileId);
@@ -37,7 +45,10 @@ const MovieList = () => {
 
                 // Set the fetched data to state
                 setAllMovies(allMoviesResponse.data);
-                setDramaMovies(genreResponse.data);
+                setDramaMovies(dramaResponse.data);
+                setComedyMovies(comedyResponse.data);
+                setHorrorMovies(horrorResponse.data);
+                setAdventureMovies(adventureResponse.data);
             } catch (error) {
                 console.error("Error fetching movies:", error);
             } finally {
@@ -63,11 +74,22 @@ const MovieList = () => {
     return (
         <Container>
             <p className="luminate-text text-white text-center fs-7 fw-bold pt-5">Movies</p>
-            <Row>
-                <WatchlistMovies movies={watchlistMovies} />
-            </Row>
+            {watchlistMovies.length > 0 && (
+                <Row>
+                    <WatchlistMovies movies={watchlistMovies} />
+                </Row>
+            )}
             <Row>
                 <GenreMovies movies={dramaMovies} genre={"Drama"} />
+            </Row>
+            <Row>
+                <GenreMovies movies={comedyMovies} genre={"Comedy"} />
+            </Row>
+            <Row>
+                <GenreMovies movies={horrorMovies} genre={"Horror"} />
+            </Row>
+            <Row>
+                <GenreMovies movies={adventureMovies} genre={"Adventure"} />
             </Row>
             <Row>
                 <p className="text-start"><strong>All Movies</strong></p>

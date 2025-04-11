@@ -25,7 +25,7 @@ const MoviePreviewPage = () => {
     }
 
     return (
-        <Container className="position-relative dashboard-container">
+      <Container className="position-relative dashboard-container">
           <button
             className="close-button bg-transparent text-white border-0 position-absolute top-0 end-0 mt-3 me-2"
             onClick={() => navigate("/dashboard")}

@@ -4,6 +4,7 @@ import "@/styles/buttons.css";
 import "@/styles/forms.css";
 import "@/styles/dashboard.css";
 import "@/styles/profileDashboard.css";
+import "@/styles/comments.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
 import SignupPage from "@/pages/SignupPage";
 import LoginPage from "@/pages/LoginPage";
