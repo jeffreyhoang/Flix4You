@@ -5,7 +5,8 @@ from .views import ( WatchlistListCreateView,
                      LikeDislikeRetrieveUpdateDestroyView,
                      CommentCreateView,
                      CommentRetrieveUpdateDestroyView,
-                     CommentListView )
+                     CommentListView,
+                     movie_likes_view )
 
 urlpatterns = [
     # Watchlist url endpoints
@@ -15,6 +16,7 @@ urlpatterns = [
     # Like/Dislike url endpoints
     path("likedislike/profile/<int:profile_id>/", LikeDislikeCreateView.as_view(), name="like-dislike-create"),
     path("likedislike/profile/<int:profile_id>/movie/<int:movie_id>/", LikeDislikeRetrieveUpdateDestroyView.as_view(), name="like-dislike-retrive-update-destroy"),
+    path("likedislike/movie/<int:movie_id>/", movie_likes_view, name="like-dislike-count"),
 
     # Comment url endpoints
     path("comment/profile/<int:profile_id>/", CommentCreateView.as_view(), name="comment-create"),

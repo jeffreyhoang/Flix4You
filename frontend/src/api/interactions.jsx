@@ -66,6 +66,13 @@ export const deleteLikeDislike = async (token, profileId, movieId) => {
     });
 }
 
+// Retrive the number of likes and dislikes of a movie
+export const countLikesDislikes = async (token, movieId) => {
+    return axios.get(`${API_BASE_URL}likedislike/movie/${movieId}/`, {
+        headers: { Authorization: `Bearer ${token}` }
+    });
+}
+
 // Create a single comment
 export const createComment = async (token, profileId, movieId, commentText) => {
     return axios.post(`${API_BASE_URL}comment/profile/${profileId}/`, {

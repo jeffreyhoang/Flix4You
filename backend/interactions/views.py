@@ -1,5 +1,8 @@
 from rest_framework import generics
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from django.db.models import Count, Q
 from django.shortcuts import get_object_or_404
 from .serializers import WatchlistSerializer, LikeDislikeSerializer, CommentSerializer
 from .models import Watchlist, LikeDislike, Comment
@@ -64,7 +67,26 @@ class LikeDislikeRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView
         movie_id = self.kwargs["movie_id"]
         return get_object_or_404(LikeDislike, profile_id=profile_id, movie_id=movie_id)
 
-
+'''
+Retrieves the number of likes and dislikes of a movie
+- GET /api/likedislike/movie/{movie_id}/
+'''
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def movie_likes_view(request, movie_id):
+    data = (
+        LikeDislike.objects
+        .filter(movie_id=movie_id)
+        .aggregate(
+            like_count=Count('id', filter=Q(is_like=True)),
+            dislike_count=Count('id', filter=Q(is_like=False))
+        )
+    )
+    return Response({
+        "movie_id": movie_id,
+        "like_count": data['like_count'],
+        "dislike_count": data['dislike_count']
+    })
 
 '''
 Create a single comment

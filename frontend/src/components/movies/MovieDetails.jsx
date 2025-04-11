@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment as faCommentRegular } from "@fortawesome/free-regular-svg-icons";
 import AddWatchlistButton from "@/components/buttons/AddWatchlistButton";
 import AddLikedislikeButton from "@/components/buttons/AddLikedislikeButton";
+import LikesDislikesCount from "@/components/interactions/LikesDislikesCount";
 
 const MovieDetails = () => {
     const navigate = useNavigate();
@@ -62,7 +63,7 @@ const MovieDetails = () => {
             <Row>
                 <h2><strong>{movie.title}</strong></h2>
             </Row>
-            <Row className="justify-content-start">
+            <Row className="justify-content-start gap-2">
                 <Col xs="auto" className="text-start">
                     <p>{formatDate(movie.release_date)}</p>
                 </Col>
@@ -76,6 +77,12 @@ const MovieDetails = () => {
                 </Col>
                 <Col xs="auto" className="text-start">
                     <p><strong>IMDb {movie.imdbRating}</strong></p>
+                </Col>
+                <Col xs="auto" className="text-start">
+                    <LikesDislikesCount token={token} movieId={movie.id} isLike={true} />                
+                </Col>
+                <Col xs="auto" className="text-start">
+                    <LikesDislikesCount token={token} movieId={movie.id} isLike={false} />                
                 </Col>
             </Row>
             <Row className="pt-2">
