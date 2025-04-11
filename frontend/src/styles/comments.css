@@ -1,9 +1,11 @@
+/* Styling for comment form */
 .comment-form-container {
     border: 2px solid white;
     border-radius: 10px;
     padding: 10px;
 }
 
+/* Styling for comment input area */
 .input-box {
     background-color: transparent;
     color: white;
