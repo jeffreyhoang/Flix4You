@@ -2,23 +2,20 @@ import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createComment } from "@/api/interactions";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 const CommentForm = ( {token, profileId, movieId} ) => {
     const [commentText, setCommentText] = useState("");
-    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setCommentText(e.target.value)
     };
 
     const handleSubmit = async (e) => {
+        e.preventDefault();
         try {
             await createComment(token, profileId, movieId, commentText);
-            navigate("/comment");
         } catch (error) {
             console.log("Comment failed: ", error);
         }
