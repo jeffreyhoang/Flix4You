@@ -1,20 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 
-
 const PlayButton = ({ videoRef }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
 
-    const handlePlay = () => {
-        if (videoRef?.current) {
-            videoRef.current.play();
-          }
-    };
+  const handleToggle = () => {
+    if (videoRef?.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+        setIsPlaying(true);
+      } else {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      }
+    }
+  };
 
-    return (
-        <Button className="custom-gradient-btn-1" onClick={handlePlay}>
-            Play
-        </Button>
-    )
-}
+  return (
+    <Button className="custom-gradient-btn-1" onClick={handleToggle}>
+      {isPlaying ? "Pause" : "Play"}
+    </Button>
+  );
+};
 
 export default PlayButton;
