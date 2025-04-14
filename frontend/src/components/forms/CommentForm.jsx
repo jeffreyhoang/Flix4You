@@ -16,6 +16,7 @@ const CommentForm = ( {token, profileId, movieId} ) => {
         e.preventDefault();
         try {
             await createComment(token, profileId, movieId, commentText);
+            window.location.reload();
         } catch (error) {
             console.log("Comment failed: ", error);
         }
