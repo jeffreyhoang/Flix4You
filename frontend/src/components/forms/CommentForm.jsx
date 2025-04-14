@@ -9,6 +9,7 @@ import Button from "react-bootstrap/Button";
 
 const CommentForm = ( {token, profileId, movieId} ) => {
     const [commentText, setCommentText] = useState("");
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setCommentText(e.target.value)
@@ -17,6 +18,7 @@ const CommentForm = ( {token, profileId, movieId} ) => {
     const handleSubmit = async (e) => {
         try {
             await createComment(token, profileId, movieId, commentText);
+            navigate("/comment");
         } catch (error) {
             console.log("Comment failed: ", error);
         }
