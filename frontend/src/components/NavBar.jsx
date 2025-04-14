@@ -28,7 +28,6 @@ const NavBar = ({ profileName }) => {
                         menuVariant="dark"
                     >
                         <NavDropdown.Item onClick={() => navigate("/profile-dashboard")}>Manage Profiles</NavDropdown.Item>
-                        <NavDropdown.Item>Settings</NavDropdown.Item>
                         <NavDropdown.Item onClick={() => handleLogout(navigate)}>Log Out</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
