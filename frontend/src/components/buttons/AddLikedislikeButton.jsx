@@ -57,6 +57,7 @@ const AddLikedislikeButton = ({ token, profileId, movieId }) => {
             }
         }
         toggleShowOptions();
+        window.location.reload();
     }
     
     return (

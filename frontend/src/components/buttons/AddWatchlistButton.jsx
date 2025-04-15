@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 import { createWatchlistMovie, getWatchlistMovie, deleteWatchlistMovie } from "@/api/interactions";
 import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,6 +8,7 @@ import { faPlus, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 const AddWatchlistButton = ({ token, profileId, movieId }) => {
     const [inWatchlist, setInWatchlist] = useState(false);
+    const queryClient = useQueryClient();
 
     useEffect(() => {
         const checkWatchlist = async () => {
@@ -31,6 +33,8 @@ const AddWatchlistButton = ({ token, profileId, movieId }) => {
             }
         } catch (error) {
             console.log("Toggle error: ", error)
+        } finally {
+            window.location.reload();
         }
     }
 
