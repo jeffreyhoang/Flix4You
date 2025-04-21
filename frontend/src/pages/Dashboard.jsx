@@ -9,6 +9,7 @@ const Dashboard = () => {
     const [profileName, setProfileName] = useState("");
     const token = localStorage.getItem("access_token");
     const storedProfile = localStorage.getItem("selected_profile");
+    const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
         if (!token) {
@@ -36,8 +37,8 @@ const Dashboard = () => {
 
     return (
         <Container className="dashboard-container text-center">
-            <NavBar profileName={profileName}/>
-            <MovieList />
+            <NavBar profileName={profileName} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+            <MovieList searchTerm={searchTerm} />
         </Container>
     );
 };

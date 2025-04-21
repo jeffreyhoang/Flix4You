@@ -12,7 +12,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Spinner from 'react-bootstrap/Spinner';
 
-const MovieList = () => {
+const MovieList = ({ searchTerm = "" }) => {
     const navigate = useNavigate();
     const token = localStorage.getItem("access_token");
     const profile = localStorage.getItem("selected_profile");
@@ -67,6 +67,11 @@ const MovieList = () => {
 
     // Extract .data from queries
     const allMovies = allMoviesRes?.data || []
+    const filteredMovies = searchTerm.trim()
+    ? allMovies.filter(movie =>
+        movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    : allMovies;
     const watchlistMovies = watchlistRes?.data || [];
 
     // Save selected movie to local storage
@@ -80,7 +85,10 @@ const MovieList = () => {
             <p className="luminate-text text-white text-center fs-7 fw-bold pt-5">Movies</p>
             <Row>
                 <p className="text-start"><strong>All Movies</strong></p>
-                {allMovies.map((movie) => (
+                {filteredMovies.length === 0 && (
+                    <p className="text-center text-white">No movies found for "{searchTerm}"</p>
+                )}
+                {filteredMovies.map((movie) => (
                     <Col xs={12} sm={6} md={4} lg={3} key={movie.id} className="d-flex justify-content-center align-items-center mb-4">
                         <button className="movie-button p-2" onClick={() => handleSelectMovie(movie)}>
                             <img src={movie.poster_url} alt={movie.title} className="movie-thumbnail" />
