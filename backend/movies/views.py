@@ -40,5 +40,5 @@ class MovieByGenreView(generics.ListAPIView):
 
     def get_queryset(self):
         movie_genre = self.request.query_params.get('movie_genre')
-        genre = Genre.objects.get(name=movie_genre)  # Assuming genre is stored by 'name'
+        genre = Genre.objects.get(name=movie_genre)   # Assuming genre is stored by 'name'
         return Movie.objects.filter(genres=genre)

@@ -38,8 +38,6 @@ class WatchlistRetrieveDestroyView(generics.RetrieveDestroyAPIView):
         movie_id = self.kwargs["movie_id"]
         return get_object_or_404(Watchlist, profile_id=profile_id, movie_id=movie_id)
 
-
-
 '''
 Create a single like/dislike
 - POST /api/likedislike/profile/{profile_id}/
