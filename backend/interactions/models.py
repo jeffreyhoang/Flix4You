@@ -36,3 +36,17 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"{self.profile.name} - {self.movie.title} - {self.comment}"
+    
+# Watch history entry
+class WatchHistory(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    watched_at = models.DateTimeField(auto_now=True)
+    last_position = models.FloatField(default=0.0)
+
+    class Meta:
+        unique_together = ("profile", "movie")
+        ordering = ["-watched_at"]
+
+    def __str__(self):
+        return f"{self.profile.name} watched {self.movie.title} ({self.last_position}s)"

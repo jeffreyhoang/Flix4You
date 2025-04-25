@@ -1,12 +1,12 @@
 from django.urls import path
-from .views import ( WatchlistListCreateView, 
-                     WatchlistRetrieveDestroyView, 
-                     LikeDislikeCreateView, 
-                     LikeDislikeRetrieveUpdateDestroyView,
-                     CommentCreateView,
-                     CommentRetrieveUpdateDestroyView,
-                     CommentListView,
-                     movie_likes_view )
+from .views import (WatchlistListCreateView, 
+                    WatchlistRetrieveDestroyView, 
+                    LikeDislikeCreateView, 
+                    LikeDislikeRetrieveUpdateDestroyView,
+                    CommentCreateView,
+                    CommentRetrieveUpdateDestroyView,
+                    CommentListView,
+                    movie_likes_view, )
 
 urlpatterns = [
     # Watchlist url endpoints

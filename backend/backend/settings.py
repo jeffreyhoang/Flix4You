@@ -20,6 +20,9 @@ CSRF_TRUSTED_ORIGINS = ["https://flix4u-production.up.railway.app"]
 
 ALLOWED_HOSTS = ["*"]
 
+# Django REST Framework configuration:
+# - Authentication classes: how the API verifies who the user is
+# - Permission classes: what the user is allowed to do after authentication
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',

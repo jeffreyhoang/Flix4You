@@ -8,7 +8,6 @@ from .views import (
     logout_view
 )
 
-
 urlpatterns = [
     # Authentication Endpoints
     path("signup/", SignupView.as_view(), name="signup"),   # User Signup

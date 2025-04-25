@@ -4,8 +4,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from django.db.models import Count, Q
 from django.shortcuts import get_object_or_404
-from .serializers import WatchlistSerializer, LikeDislikeSerializer, CommentSerializer
-from .models import Watchlist, LikeDislike, Comment
+from .serializers import WatchlistSerializer, LikeDislikeSerializer, CommentSerializer, WatchHistorySerializer
+from .models import Watchlist, LikeDislike, Comment, WatchHistory
 
 '''
 List and create watchlist movies

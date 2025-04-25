@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Watchlist, LikeDislike, Comment
+from .models import Watchlist, LikeDislike, Comment, WatchHistory
 
 class WatchlistSerializer(serializers.ModelSerializer):
     class Meta:
@@ -15,4 +15,9 @@ class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = ['id', 'movie', 'comment', 'added_at']
+
+class WatchHistorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WatchHistory
+        fields = "__all__"
 
