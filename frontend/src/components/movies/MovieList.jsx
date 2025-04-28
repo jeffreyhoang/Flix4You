@@ -68,10 +68,33 @@ const MovieList = ({ searchTerm = "" }) => {
     // Extract .data from queries
     const allMovies = allMoviesRes?.data || []
     const filteredMovies = searchTerm.trim()
-    ? allMovies.filter(movie =>
-        movie.title.toLowerCase().includes(searchTerm.toLowerCase())
-    )
+    ? allMovies.filter((movie) => {
+        const lowerSearch = searchTerm.toLowerCase();
+        
+        const titleMatch = movie.title?.toLowerCase().includes(lowerSearch);
+
+        const genreMatch = Array.isArray(movie.genres)
+            ? movie.genres.some((genre) =>
+                genre.name?.toLowerCase().includes(lowerSearch)
+            )
+            : false;
+
+        const directorMatch = Array.isArray(movie.directors)
+            ? movie.directors.some((director) =>
+                director.name?.toLowerCase().includes(lowerSearch)
+            )
+            : false;
+
+        const actorMatch = Array.isArray(movie.actors)
+            ? movie.actors.some((actor) =>
+                actor.name?.toLowerCase().includes(lowerSearch)
+            )
+            : false;
+
+        return titleMatch || genreMatch || directorMatch || actorMatch;
+    })
     : allMovies;
+
     const watchlistMovies = watchlistRes?.data || [];
 
     // Save selected movie to local storage
