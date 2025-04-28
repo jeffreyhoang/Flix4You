@@ -8,7 +8,6 @@ import { faPlus, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 const AddWatchlistButton = ({ token, profileId, movieId }) => {
     const [inWatchlist, setInWatchlist] = useState(false);
-    const queryClient = useQueryClient();
 
     useEffect(() => {
         const checkWatchlist = async () => {

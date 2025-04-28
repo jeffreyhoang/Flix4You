@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 const GenreMovies = ({ movies, genre }) => {
     const navigate = useNavigate();
 
+    // Saved selected movies to local storage
     const handleSelectMovie = (movie) => {
         localStorage.setItem("selected_movie", JSON.stringify(movie));
         navigate("/display-movie");

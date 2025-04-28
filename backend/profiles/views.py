@@ -18,8 +18,8 @@ class SignupView(generics.CreateAPIView):
 
 '''
 List & create profiles
-- GET /api/profiles/
-- POST /api/profiles/
+- GET /api/profile/
+- POST /api/profile/
 '''
 class ProfileListCreateView(generics.ListCreateAPIView):
     serializer_class = ProfileSerializer
@@ -38,9 +38,9 @@ class ProfileListCreateView(generics.ListCreateAPIView):
 
 '''
 Retrieve, update, and delete a single profile
-- GET /api/profiles/{id}
-- PUT /api/profiles/{id}
-- DELETE /api/profiles/{id}
+- GET /api/profile/{id}
+- PUT /api/profile/{id}
+- DELETE /api/profile/{id}
 '''
 class ProfileRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ProfileSerializer
@@ -79,3 +79,5 @@ def logout_view(request):
         return Response({"message": "Successfully logged out"}, status=200)
     except Exception as e:
         return Response({"message": "Token invalid or already expired — treated as logged out."}, status=200)
+
+
