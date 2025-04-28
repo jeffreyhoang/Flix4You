@@ -111,6 +111,7 @@ const MovieList = ({ searchTerm = "" }) => {
                 {filteredMovies.length === 0 && (
                     <p className="text-center text-white">No movies found for "{searchTerm}"</p>
                 )}
+
                 {filteredMovies.map((movie) => (
                     <Col xs={12} sm={6} md={4} lg={3} key={movie.id} className="d-flex justify-content-center align-items-center mb-4">
                         <button className="movie-button p-2" onClick={() => handleSelectMovie(movie)}>
@@ -118,6 +119,7 @@ const MovieList = ({ searchTerm = "" }) => {
                         </button>
                     </Col>
                 ))}
+                
             </Row>
             <Row>
                 {loadingWatchlist ? (

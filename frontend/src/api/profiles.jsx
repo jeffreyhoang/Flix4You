@@ -16,16 +16,9 @@ export const getProfiles = async (token) => {
 };
 
 // Create a single user profile
- export const createProfile = async (token, profileData) => {
+export const createProfile = async (token, profileData) => {
     return axios.post(`${API_BASE_URL}profile/`, profileData, {
         headers: { Authorization: `Bearer ${token}` }  
-    });
- };
-
-// Update a single user profile
-export const updateProfile = async (token, profileId, updatedData) => {
-    return axios.put(`${API_BASE_URL}profile/${profileId}/`, updatedData, {
-        headers: { Authorization: `Bearer ${token}` }
     });
 };
 
@@ -33,6 +26,13 @@ export const updateProfile = async (token, profileId, updatedData) => {
 export const getProfile = async (token, profileId) => {
     return axios.get(`${API_BASE_URL}profile/${profileId}/`, {
         headers: { Authorization: `Bearer ${token}`}
+    });
+};
+
+// Update a single user profile
+export const updateProfile = async (token, profileId, updatedData) => {
+    return axios.put(`${API_BASE_URL}profile/${profileId}/`, updatedData, {
+        headers: { Authorization: `Bearer ${token}` }
     });
 };
 
