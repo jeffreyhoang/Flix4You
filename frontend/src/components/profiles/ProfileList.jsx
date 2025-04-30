@@ -31,13 +31,24 @@ const ProfileList = ({ profiles, isSelecting }) => {   // Receives profiles from
                     {profiles.map((profile) => (
                         <Col className="d-flex flex-column align-items-center mb-4" key={profile.id}>
                             <Button 
-                                className="create-profile-btn rounded-circle mb-2 d-flex align-items-center justify-content-center" 
-                                onClick={() => handleSelectProfile(profile)}>
-                                {isSelecting ? (
-                                    <FontAwesomeIcon icon={faCircleUser} className="profile-icon" style={{ fontSize: "7.8rem" }} />
+                            className="create-profile-btn rounded-circle mb-2 d-flex align-items-center justify-content-center overflow-hidden p-0 border-0"
+                            onClick={() => handleSelectProfile(profile)}
+                            style={{ width: "8rem", height: "8rem", backgroundColor: "transparent" }}
+                            >
+                            {isSelecting ? (
+                                profile.avatar ? (
+                                <img
+                                    src={profile.avatar}
+                                    alt={`${profile.name}'s avatar`}
+                                    className="rounded-circle"
+                                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                                />
                                 ) : (
-                                    <FontAwesomeIcon icon={faPencil} className="profile-icon" style={{ fontSize: "3rem" }} />
-                                )}
+                                <FontAwesomeIcon icon={faCircleUser} className="profile-icon" style={{ fontSize: "7.8rem" }} />
+                                )
+                            ) : (
+                                <FontAwesomeIcon icon={faPencil} className="profile-icon" style={{ fontSize: "3rem" }} />
+                            )}
                             </Button>
                             <p>{profile.name}</p>
                         </Col>

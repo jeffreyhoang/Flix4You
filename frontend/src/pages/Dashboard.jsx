@@ -6,38 +6,36 @@ import Container from "react-bootstrap/esm/Container";
 
 const Dashboard = () => {
     const navigate = useNavigate();
-    const [profileName, setProfileName] = useState("");
+    const [profile, setProfile] = useState(null);
     const token = localStorage.getItem("access_token");
     const storedProfile = localStorage.getItem("selected_profile");
     const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
         if (!token) {
-            navigate("/");  // Redirect if not logged in
+            navigate("/");
         } else {
-            loadProfileName();
+            loadProfile();
         }
     }, []);
 
-    const loadProfileName = async () => {
-
+    const loadProfile = () => {
         if (!storedProfile) {
             navigate("/profile-dashboard");
         } else {
             try {
-                const profile = JSON.parse(storedProfile);
-                setProfileName(profile.name);
-                navigate("/dashboard");
-            } catch (error){
+                const parsedProfile = JSON.parse(storedProfile);
+                setProfile(parsedProfile);
+            } catch (error) {
                 console.error("Error parsing profile:", error);
                 navigate("/profile-dashboard");
             }
         }
-    }
+    };
 
     return (
         <Container className="dashboard-container text-center">
-            <NavBar profileName={profileName} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+            <NavBar profile={profile} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             <MovieList searchTerm={searchTerm} />
         </Container>
     );

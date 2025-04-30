@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { handleLogout } from "@/utils/authUtils.jsx"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleUser} from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
@@ -10,15 +11,27 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 
-const NavBar = ({ profileName, searchTerm, setSearchTerm }) => {
+const NavBar = ({ profile, searchTerm, setSearchTerm }) => {
     const navigate = useNavigate();
     const [showSearch, setShowSearch] = useState(false);
 
     return (
         <Navbar className="bg-black" fixed="top">
             <Container>
-                <Navbar.Text className="text-white fw-bold">For {profileName}</Navbar.Text>
-
+            <Navbar.Text className="text-white fw-bold d-flex align-items-center gap-2">
+                {profile?.avatar ? (
+                    <img
+                        src={profile.avatar}
+                        alt="Profile Avatar"
+                        className="rounded-circle"
+                        style={{ width: "35px", height: "35px", objectFit: "cover" }}
+                    />
+                ) : (
+                    <FontAwesomeIcon icon={faCircleUser} className="text-white" style={{ fontSize: "1.8rem" }} />
+                )}
+                For {profile?.name}
+            </Navbar.Text>
+            
                 <Nav className="align-items-center">
                     {/* Search Icon */}
                     <Nav.Link className="text-white" onClick={() => setShowSearch(!showSearch)}>
