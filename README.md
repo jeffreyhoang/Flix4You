@@ -5,9 +5,9 @@ The platform is hosted with **Render** (frontend) and **Railway** (backend), com
 
 ---
 
-## 🌐 Website
+## Website
 
-👉 **Live Site:** [https://flix4you.onrender.com](https://flix4you.onrender.com)
+**Live Site:** [https://flix4you.onrender.com](https://flix4you.onrender.com)
 
 ---
 
